@@ -51,6 +51,13 @@ export function Header() {
               Inicio
             </button>
             <button
+              onClick={() => scrollToSection('about')}
+              className="text-[#B0C4CC] hover:text-white transition-colors"
+              style={{ fontFamily: 'Inter, sans-serif' }}
+            >
+              Nosotros
+            </button>
+            <button
               onClick={() => scrollToSection('services')}
               className="text-[#B0C4CC] hover:text-white transition-colors"
               style={{ fontFamily: 'Inter, sans-serif' }}
@@ -58,18 +65,18 @@ export function Header() {
               Servicios
             </button>
             <button
+              onClick={() => scrollToSection('contact')}
+              className="text-[#B0C4CC] hover:text-white transition-colors"
+              style={{ fontFamily: 'Inter, sans-serif' }}
+            >
+              Cómo Funciona
+            </button>
+            <button
               onClick={() => scrollToSection('other-services')}
               className="text-[#B0C4CC] hover:text-white transition-colors"
               style={{ fontFamily: 'Inter, sans-serif' }}
             >
-              Otros Servicios
-            </button>
-            <button
-              onClick={() => scrollToSection('about')}
-              className="text-[#B0C4CC] hover:text-white transition-colors"
-              style={{ fontFamily: 'Inter, sans-serif' }}
-            >
-              Nosotros
+              Nuestros Socios Estrategicos
             </button>
             <button
               onClick={() => scrollToSection('contact')}

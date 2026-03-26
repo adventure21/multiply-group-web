@@ -1,14 +1,15 @@
 import { Header } from './components/Header';
 import { HeroSection } from './components/HeroSection';
-import { PartnersSection } from './components/PartnersSection';
+import { AboutSection } from './components/AboutSection';
+import { DifferentiatorSection } from './components/DifferentiatorSection';
+import { StakeholdersSection } from './components/StakeholdersSection';
 import { ProblemSection } from './components/ProblemSection';
 import { SolutionSection } from './components/SolutionSection';
 import { ServicesSection } from './components/ServicesSection';
 import { OtherServicesSection } from './components/OtherServicesSection';
-import { HowItWorksSection } from './components/HowItWorksSection';
 import { BenefitsSection } from './components/BenefitsSection';
-import { AboutSection } from './components/AboutSection';
-import { DifferentiatorSection } from './components/DifferentiatorSection';
+import { HowItWorksSection } from './components/HowItWorksSection';
+import { PartnersSection } from './components/PartnersSection';
 import { TestimonialsSection } from './components/TestimonialsSection';
 import { CTASection } from './components/CTASection';
 import { Footer } from './components/Footer';
@@ -19,17 +20,19 @@ export default function App() {
     <div className="bg-[#0A2E3D] min-h-screen">
       <Header />
       <HeroSection />
-      <PartnersSection />
+      <AboutSection />
+      <DifferentiatorSection />
+      <StakeholdersSection />
       <ProblemSection />
       <SolutionSection />
       <ServicesSection />
       <OtherServicesSection />
+      <BenefitsSection /> 
       <HowItWorksSection />
-      <BenefitsSection />
-      <AboutSection />
-      <DifferentiatorSection />
+      <PartnersSection />
       <TestimonialsSection />
       <CTASection />
+
       <Footer />
       <WhatsAppButton />
     </div>
