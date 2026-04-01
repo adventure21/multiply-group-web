@@ -25,11 +25,10 @@ import {
   Users,
   CalendarDays,
   MapPin,
-  ExternalLink,
 } from 'lucide-react';
 import { LucideIcon } from 'lucide-react';
 
-// ─── Types ───────────────────────────────────────────────────────────────────
+// ─── Types ────────────────────────────────────────────────────────────────────
 
 interface ServiceGroup {
   label: string;
@@ -56,7 +55,7 @@ interface Category {
   services: Service[];
 }
 
-// ─── Data ────────────────────────────────────────────────────────────────────
+// ─── Data ─────────────────────────────────────────────────────────────────────
 
 const importacionServices: Service[] = [
   {
@@ -242,47 +241,13 @@ const consultoriaServices: Service[] = [
     subtitle: 'Permisos y habilitaciones ante entidades del Estado',
     lead: 'Gestionamos todos los trámites regulatorios ante las principales entidades bolivianas para que operes con total cumplimiento legal.',
     groups: [
-      {
-        label: 'SENASAG',
-        items: [
-          'Registro sanitario para alimentos, bebidas y productos agropecuarios',
-          'Permisos de importación',
-        ],
-      },
-      {
-        label: 'AGEMED',
-        items: [
-          'Registro sanitario de medicamentos, dispositivos médicos y cosméticos',
-          'Habilitación de empresas importadoras',
-        ],
-      },
-      {
-        label: 'SENAVEX',
-        items: [
-          'Registro como importador/exportador',
-          'Certificados de origen',
-        ],
-      },
-      {
-        label: 'ADUANA NACIONAL',
-        items: [
-          'Clasificación arancelaria',
-          'Despacho aduanero',
-          'Optimización tributaria en importaciones',
-        ],
-      },
-      {
-        label: 'IBMETRO',
-        items: ['Certificaciones técnicas y de calidad'],
-      },
-      {
-        label: 'Ministerio de Salud',
-        items: ['Autorizaciones especiales para productos sensibles'],
-      },
-      {
-        label: 'Otras regulaciones específicas',
-        items: ['Sustancias controladas', 'Productos químicos', 'Equipos especiales'],
-      },
+      { label: 'SENASAG', items: ['Registro sanitario para alimentos, bebidas y productos agropecuarios', 'Permisos de importación'] },
+      { label: 'AGEMED', items: ['Registro sanitario de medicamentos, dispositivos médicos y cosméticos', 'Habilitación de empresas importadoras'] },
+      { label: 'SENAVEX', items: ['Registro como importador/exportador', 'Certificados de origen'] },
+      { label: 'ADUANA NACIONAL', items: ['Clasificación arancelaria', 'Despacho aduanero', 'Optimización tributaria en importaciones'] },
+      { label: 'IBMETRO', items: ['Certificaciones técnicas y de calidad'] },
+      { label: 'Ministerio de Salud', items: ['Autorizaciones especiales para productos sensibles'] },
+      { label: 'Otras regulaciones específicas', items: ['Sustancias controladas', 'Productos químicos', 'Equipos especiales'] },
     ],
     color: '#00C2FF',
   },
@@ -304,21 +269,6 @@ const consultoriaServices: Service[] = [
   },
 ];
 
-const categories: Category[] = [
-  {
-    id: 'importacion',
-    title: 'Importación y Exportación',
-    icon: Building2,
-    services: importacionServices,
-  },
-  {
-    id: 'consultoria',
-    title: 'Consultoría Empresarial',
-    icon: Briefcase,
-    services: consultoriaServices,
-  },
-];
-
 const logisticaServices: Service[] = [
   {
     id: 20,
@@ -326,7 +276,7 @@ const logisticaServices: Service[] = [
     step: 'Servicio 1',
     title: 'Soporte Logístico Internacional',
     subtitle: 'De la compra a la entrega sin contratiempos',
-    lead: 'Gestionamos el proceso completo desde que se confirma la compra con el proveedor hasta que la carga llega a destino, asegurando tiempos, costos y coordinación.',
+    lead: 'Gestionamos el proceso completo desde que se confirma la compra con el proveedor hasta que la carga llega a destino.',
     items: [
       'Coordinación directa con proveedores y agentes de carga internacionales',
       'Organización de embarques según condiciones reales (FOB, CIF, EXW)',
@@ -363,61 +313,13 @@ const logisticaServices: Service[] = [
     subtitle: 'Bolivia al mundo',
     lead: 'Llevamos tus productos desde Bolivia hacia mercados internacionales de forma segura, eficiente y rentable.',
     groups: [
-      {
-        label: '📦 Preparación del producto',
-        items: [
-          'Adecuación a normativas internacionales',
-          'Etiquetado y requisitos del país destino',
-        ],
-      },
-      {
-        label: '📄 Gestión documental',
-        items: [
-          'Factura comercial',
-          'Lista de empaque',
-          'Certificados de origen',
-          'Documentación aduanera',
-        ],
-      },
-      {
-        label: '🏭 Coordinación con producción',
-        items: [
-          'Planificación de pedidos',
-          'Control de tiempos de entrega',
-          'Validación de capacidad productiva',
-        ],
-      },
-      {
-        label: '✅ Control de calidad',
-        items: [
-          'Verificación del producto',
-          'Cumplimiento de estándares internacionales',
-        ],
-      },
-      {
-        label: '🚢 Logística internacional',
-        items: [
-          'Coordinación de transporte aéreo o marítimo',
-          'Gestión de agentes de carga',
-          'Optimización de costos logísticos',
-        ],
-      },
-      {
-        label: '📋 Asesoría regulatoria',
-        items: [
-          'Requisitos del país de destino',
-          'Normas sanitarias o técnicas',
-          'Restricciones de importación en destino',
-        ],
-      },
-      {
-        label: '⭐ Conexión con compradores internacionales',
-        items: [
-          'Búsqueda de clientes en el exterior',
-          'Ruedas de negocio',
-          'Contacto con distribuidores',
-        ],
-      },
+      { label: '📦 Preparación del producto', items: ['Adecuación a normativas internacionales', 'Etiquetado y requisitos del país destino'] },
+      { label: '📄 Gestión documental', items: ['Factura comercial', 'Lista de empaque', 'Certificados de origen', 'Documentación aduanera'] },
+      { label: '🏭 Coordinación con producción', items: ['Planificación de pedidos', 'Control de tiempos de entrega', 'Validación de capacidad productiva'] },
+      { label: '✅ Control de calidad', items: ['Verificación del producto', 'Cumplimiento de estándares internacionales'] },
+      { label: '🚢 Logística internacional', items: ['Coordinación de transporte aéreo o marítimo', 'Gestión de agentes de carga', 'Optimización de costos logísticos'] },
+      { label: '📋 Asesoría regulatoria', items: ['Requisitos del país de destino', 'Normas sanitarias o técnicas', 'Restricciones de importación en destino'] },
+      { label: '⭐ Conexión con compradores internacionales', items: ['Búsqueda de clientes en el exterior', 'Ruedas de negocio', 'Contacto con distribuidores'] },
     ],
     cta: '🎯 Llegada puntual, sin riesgos y con control total de la inversión.',
     color: '#00C2FF',
@@ -555,46 +457,16 @@ const capacitacionServices: Service[] = [
 ];
 
 const allCategories: Category[] = [
-  {
-    id: 'importacion',
-    title: 'Importación y Exportación',
-    icon: Building2,
-    services: importacionServices,
-  },
-  {
-    id: 'consultoria',
-    title: 'Consultoría Empresarial',
-    icon: Briefcase,
-    services: consultoriaServices,
-  },
-  {
-    id: 'logistica',
-    title: 'Logística y Gestión',
-    icon: Ship,
-    services: logisticaServices,
-  },
-  {
-    id: 'expansion',
-    title: 'Expansión Internacional',
-    icon: Globe2,
-    services: expansionServices,
-  },
-  {
-    id: 'capacitacion',
-    title: 'Capacitación Empresarial',
-    icon: GraduationCap,
-    services: capacitacionServices,
-  },
+  { id: 'importacion', title: 'Importación y Exportación', icon: Building2, services: importacionServices },
+  { id: 'consultoria', title: 'Consultoría Empresarial', icon: Briefcase, services: consultoriaServices },
+  { id: 'logistica', title: 'Logística y Gestión', icon: Ship, services: logisticaServices },
+  { id: 'expansion', title: 'Expansión Internacional', icon: Globe2, services: expansionServices },
+  { id: 'capacitacion', title: 'Capacitación Empresarial', icon: GraduationCap, services: capacitacionServices },
 ];
 
-// ─── ServiceCard ─────────────────────────────────────────────────────────────
+// ─── ServiceCard ──────────────────────────────────────────────────────────────
 
-interface ServiceCardProps {
-  service: Service;
-  index: number;
-}
-
-function ServiceCard({ service, index }: ServiceCardProps) {
+function ServiceCard({ service, index }: { service: Service; index: number }) {
   const [open, setOpen] = useState(false);
   const Icon = service.icon;
 
@@ -607,22 +479,23 @@ function ServiceCard({ service, index }: ServiceCardProps) {
       className="rounded-2xl overflow-hidden"
       style={{
         background: 'linear-gradient(135deg, #0f4268 0%, #0a2d45 100%)',
-        border: `1px solid ${open ? service.color + '44' : 'rgba(0,194,255,0.1)'}`,
-        transition: 'border-color 0.3s',
+        border: `1px solid ${open ? service.color + '55' : 'rgba(0,194,255,0.1)'}`,
+        transition: 'border-color 0.3s, box-shadow 0.3s',
+        boxShadow: open ? `0 0 20px ${service.color}15` : 'none',
       }}
     >
       <button
         onClick={() => setOpen(!open)}
-        className="w-full text-left p-6 flex items-start gap-4 focus:outline-none"
+        className="w-full text-left p-4 sm:p-6 flex items-start gap-3 sm:gap-4 focus:outline-none group"
       >
         <div
-          className="flex-shrink-0 w-14 h-14 rounded-xl flex items-center justify-center transition-all duration-300"
+          className="flex-shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-xl flex items-center justify-center transition-all duration-300 group-hover:scale-105"
           style={{
             background: `linear-gradient(135deg, ${service.color}22, ${service.color}11)`,
             border: `1px solid ${service.color}33`,
           }}
         >
-          <Icon className="w-7 h-7" style={{ color: service.color }} />
+          <Icon className="w-6 h-6 sm:w-7 sm:h-7" style={{ color: service.color }} />
         </div>
 
         <div className="flex-1 min-w-0">
@@ -633,12 +506,15 @@ function ServiceCard({ service, index }: ServiceCardProps) {
             {service.step}
           </span>
           <h3
-            className="text-lg font-bold text-white leading-tight"
+            className="text-base sm:text-lg font-bold text-white leading-tight group-hover:text-[#00C2FF] transition-colors duration-200"
             style={{ fontFamily: 'Poppins, sans-serif' }}
           >
             {service.title}
           </h3>
-          <p className="text-sm mt-0.5" style={{ color: '#7BA8B8', fontFamily: 'Inter, sans-serif' }}>
+          <p
+            className="text-xs sm:text-sm mt-0.5 line-clamp-1"
+            style={{ color: '#7BA8B8', fontFamily: 'Inter, sans-serif' }}
+          >
             {service.subtitle}
           </p>
         </div>
@@ -662,13 +538,14 @@ function ServiceCard({ service, index }: ServiceCardProps) {
             transition={{ duration: 0.35, ease: 'easeInOut' }}
             style={{ overflow: 'hidden' }}
           >
-            <div className="px-6 pb-6 pt-0">
+            <div className="px-4 sm:px-6 pb-5 pt-0">
               <div
-                className="h-px mb-5"
+                className="h-px mb-4"
                 style={{ background: `linear-gradient(90deg, ${service.color}66, transparent)` }}
               />
+
               <p
-                className="text-sm mb-4 leading-relaxed"
+                className="text-sm leading-relaxed mb-4"
                 style={{ color: '#B0C4CC', fontFamily: 'Inter, sans-serif' }}
               >
                 {service.lead}
@@ -676,16 +553,9 @@ function ServiceCard({ service, index }: ServiceCardProps) {
 
               {service.items && (
                 <ul className="space-y-2 mb-4">
-                  {service.items.map((item: string, i: number) => (
-                    <li
-                      key={i}
-                      className="flex items-start gap-2 text-sm"
-                      style={{ color: '#D0E4EA', fontFamily: 'Inter, sans-serif' }}
-                    >
-                      <CheckCircle2
-                        className="w-4 h-4 flex-shrink-0 mt-0.5"
-                        style={{ color: service.color }}
-                      />
+                  {service.items.map((item, i) => (
+                    <li key={i} className="flex items-start gap-2 text-sm" style={{ color: '#D0E4EA', fontFamily: 'Inter, sans-serif' }}>
+                      <CheckCircle2 className="w-4 h-4 flex-shrink-0 mt-0.5" style={{ color: service.color }} />
                       {item}
                     </li>
                   ))}
@@ -693,26 +563,26 @@ function ServiceCard({ service, index }: ServiceCardProps) {
               )}
 
               {service.groups && (
-                <div className="space-y-4 mb-4">
-                  {service.groups.map((group: ServiceGroup, gi: number) => (
-                    <div key={gi}>
+                <div className="space-y-3 mb-4">
+                  {service.groups.map((group, gi) => (
+                    <div
+                      key={gi}
+                      className="rounded-xl p-3"
+                      style={{
+                        background: `${service.color}08`,
+                        border: `1px solid ${service.color}20`,
+                      }}
+                    >
                       <p
                         className="text-xs font-semibold uppercase tracking-wider mb-2"
                         style={{ color: service.color, fontFamily: 'Poppins, sans-serif' }}
                       >
                         {group.label}
                       </p>
-                      <ul className="space-y-1.5 pl-1">
-                        {group.items.map((item: string, ii: number) => (
-                          <li
-                            key={ii}
-                            className="flex items-start gap-2 text-sm"
-                            style={{ color: '#D0E4EA', fontFamily: 'Inter, sans-serif' }}
-                          >
-                            <ArrowRight
-                              className="w-3.5 h-3.5 flex-shrink-0 mt-0.5"
-                              style={{ color: service.color }}
-                            />
+                      <ul className="space-y-1.5">
+                        {group.items.map((item, ii) => (
+                          <li key={ii} className="flex items-start gap-2 text-xs sm:text-sm" style={{ color: '#D0E4EA', fontFamily: 'Inter, sans-serif' }}>
+                            <ArrowRight className="w-3.5 h-3.5 flex-shrink-0 mt-0.5" style={{ color: service.color }} />
                             {item}
                           </li>
                         ))}
@@ -724,7 +594,7 @@ function ServiceCard({ service, index }: ServiceCardProps) {
 
               {service.cta && (
                 <div
-                  className="rounded-xl px-4 py-3 text-sm font-medium mt-2"
+                  className="rounded-xl px-4 py-3 text-xs sm:text-sm font-medium mt-2"
                   style={{
                     background: `linear-gradient(135deg, ${service.color}15, ${service.color}08)`,
                     border: `1px solid ${service.color}30`,
@@ -745,43 +615,40 @@ function ServiceCard({ service, index }: ServiceCardProps) {
 
 // ─── CategoryBlock ────────────────────────────────────────────────────────────
 
-interface CategoryBlockProps {
-  category: Category;
-  categoryIndex: number;
-}
-
-function CategoryBlock({ category, categoryIndex }: CategoryBlockProps) {
+function CategoryBlock({ category, categoryIndex }: { category: Category; categoryIndex: number }) {
   const Icon = category.icon;
+  const accentColor = categoryIndex % 2 === 0 ? '#00C2FF' : '#3EC6D3';
+
   return (
-    <div className="mb-16">
+    <div className="mb-20">
       <motion.div
-        className="flex items-center gap-4 mb-8"
+        className="mb-8"
         initial={{ opacity: 0, x: -20 }}
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5, delay: categoryIndex * 0.1 }}
       >
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-3 mb-3">
           <div
-            className="w-9 h-9 rounded-lg flex items-center justify-center"
-            style={{ background: 'rgba(0,194,255,0.15)', border: '1px solid rgba(0,194,255,0.3)' }}
+            className="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0"
+            style={{ background: `${accentColor}20`, border: `1px solid ${accentColor}40` }}
           >
-            <Icon className="w-5 h-5 text-[#00C2FF]" />
+            <Icon className="w-5 h-5" style={{ color: accentColor }} />
           </div>
           <h3
-            className="text-2xl font-bold text-white"
+            className="text-xl sm:text-2xl font-bold text-white"
             style={{ fontFamily: 'Poppins, sans-serif' }}
           >
             {category.title}
           </h3>
         </div>
         <div
-          className="flex-1 h-px"
-          style={{ background: 'linear-gradient(90deg, rgba(0,194,255,0.3), transparent)' }}
+          className="h-px w-full"
+          style={{ background: `linear-gradient(90deg, ${accentColor}50, transparent)` }}
         />
       </motion.div>
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
         {category.services.map((service, index) => (
           <ServiceCard key={service.id} service={service} index={index} />
         ))}
@@ -803,8 +670,9 @@ export function ServicesSection() {
         }}
       />
 
-      <div className="max-w-7xl mx-auto px-6 relative">
-        {/* Section header */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 relative">
+
+        {/* Header */}
         <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 20 }}
@@ -813,7 +681,7 @@ export function ServicesSection() {
           transition={{ duration: 0.6 }}
         >
           <span
-            className="inline-block text-xs font-bold tracking-widest uppercase mb-4 px-4 py-1.5 rounded-full"
+            className="inline-block text-xs font-bold trcking-widest uppercase mb-4 px-4 py-1.5 rounded-full"
             style={{
               color: '#00C2FF',
               background: 'rgba(0,194,255,0.1)',
@@ -824,20 +692,20 @@ export function ServicesSection() {
             Lo que hacemos
           </span>
           <h2
-            className="text-5xl font-bold text-white mb-4"
+            className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4"
             style={{ fontFamily: 'Poppins, sans-serif' }}
           >
             Nuestros Servicios
           </h2>
           <p
-            className="text-xl max-w-2xl mx-auto"
+            className="text-base sm:text-lg md:text-xl max-w-2xl mx-auto px-4"
             style={{ color: '#B0C4CC', fontFamily: 'Inter, sans-serif' }}
           >
             Soluciones integrales para hacer exitoso tu negocio de importación y exportación
           </p>
         </motion.div>
 
-        {/* All categories */}
+        {/* Categorías */}
         {allCategories.map((category, idx) => (
           <CategoryBlock key={category.id} category={category} categoryIndex={idx} />
         ))}
@@ -850,12 +718,15 @@ export function ServicesSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.3 }}
         >
-          <p className="text-lg mb-6" style={{ color: '#B0C4CC', fontFamily: 'Inter, sans-serif' }}>
+          <p
+            className="text-base sm:text-lg mb-6 px-4"
+            style={{ color: '#B0C4CC', fontFamily: 'Inter, sans-serif' }}
+          >
             ¿Listo para dar el siguiente paso con tu negocio?
           </p>
-          <a
-            href="#contact"
-            className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-semibold text-white transition-all duration-300 hover:scale-105"
+          <button
+            onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+            className="inline-flex items-center gap-2 px-6 sm:px-8 py-4 rounded-xl font-semibold text-white transition-all duration-300 hover:scale-105 text-sm sm:text-base"
             style={{
               background: 'linear-gradient(135deg, #00C2FF, #3EC6D3)',
               fontFamily: 'Poppins, sans-serif',
@@ -865,8 +736,9 @@ export function ServicesSection() {
             <ShieldCheck className="w-5 h-5" />
             Solicitar Asesoría Gratuita
             <TrendingUp className="w-5 h-5" />
-          </a>
+          </button>
         </motion.div>
+
       </div>
     </section>
   );

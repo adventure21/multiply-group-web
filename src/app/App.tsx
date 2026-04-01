@@ -11,7 +11,6 @@ import { BenefitsSection } from './components/BenefitsSection';
 import { HowItWorksSection } from './components/HowItWorksSection';
 import { PartnersSection } from './components/PartnersSection';
 import { TestimonialsSection } from './components/TestimonialsSection';
-import { CTASection } from './components/CTASection';
 import { Footer } from './components/Footer';
 import { WhatsAppButton } from './components/WhatsAppButton';
 
@@ -21,18 +20,17 @@ export default function App() {
       <Header />
       <HeroSection />
       <AboutSection />
+      <StakeholdersSection />
       <DifferentiatorSection />
       <StakeholdersSection />
-      <ProblemSection />
-      <SolutionSection />
       <ServicesSection />
       <OtherServicesSection />
       <BenefitsSection /> 
       <HowItWorksSection />
       <PartnersSection />
+      <SolutionSection />
       <TestimonialsSection />
-      <CTASection />
-
+      <ProblemSection />
       <Footer />
       <WhatsAppButton />
     </div>
