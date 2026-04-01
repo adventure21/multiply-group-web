@@ -22,7 +22,6 @@ export default function App() {
       <AboutSection />
       <StakeholdersSection />
       <DifferentiatorSection />
-      <StakeholdersSection />
       <ServicesSection />
       <OtherServicesSection />
       <BenefitsSection /> 
