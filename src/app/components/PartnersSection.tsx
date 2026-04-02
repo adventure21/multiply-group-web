@@ -37,14 +37,20 @@ export function PartnersSection() {
           slidesToShow: 2,
         },
       },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+        },
+      },
     ],
   };
 
   return (
     <section id="partners" className="py-20 scroll-mt-20" style={{ background: '#072136' }}>
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <motion.h2
-          className="text-4xl font-bold text-white text-center mb-16"
+          className="text-3xl md:text-4xl font-bold text-white text-center mb-12 md:mb-16"
           style={{ fontFamily: 'Poppins, sans-serif' }}
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -57,9 +63,9 @@ export function PartnersSection() {
         <div className="overflow-hidden">
           <Slider {...settings}>
             {partners.map((partner, index) => (
-              <div key={index} className="px-8">
+              <div key={index} className="px-2 md:px-8">
                 <motion.div
-                  className="rounded-xl p-8 flex items-center justify-center h-32 transition-all duration-300 group"
+                  className="rounded-xl p-4 md:p-8 flex items-center justify-center h-24 md:h-32 transition-all duration-300 group"
                   style={{ 
                     background: 'linear-gradient(135deg, #0C314D 0%, #072136 100%)',
                     border: '1px solid rgba(0, 194, 255, 0.1)'
@@ -67,7 +73,7 @@ export function PartnersSection() {
                   whileHover={{ scale: 1.05 }}
                 >
                   <p
-                    className="text-3xl font-bold text-[#6B8A96] group-hover:text-white transition-colors duration-300"
+                    className="text-xl md:text-3xl font-bold text-[#6B8A96] group-hover:text-white transition-colors duration-300 text-center break-words w-full"
                     style={{ fontFamily: 'Poppins, sans-serif' }}
                   >
                     {partner}
