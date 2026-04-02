@@ -26,7 +26,8 @@ export function BenefitsSection() {
   ];
 
   return (
-    <section className="py-20 bg-[#0D3A4A]">
+    // CAMBIO APLICADO: Fondo actualizado al nuevo Azul Noche (#072136)
+    <section className="py-20" style={{ background: '#072136' }}>
       <div className="max-w-7xl mx-auto px-6">
         <motion.div
           className="text-center mb-16"
@@ -62,7 +63,12 @@ export function BenefitsSection() {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
               >
                 <motion.div
-                  className="bg-[#0A2E3D] w-24 h-24 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg"
+                  // CAMBIO APLICADO: Se eliminó bg-[#0A2E3D] y se añadió el degradado azul profundo
+                  className="w-24 h-24 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg"
+                  style={{ 
+                    background: 'linear-gradient(135deg, #0C314D 0%, #072136 100%)',
+                    border: '1px solid rgba(0, 194, 255, 0.15)' // Un toque sutil de borde para que resalte
+                  }}
                   whileHover={{ scale: 1.1, rotate: 5 }}
                   transition={{ type: 'spring', stiffness: 300 }}
                 >

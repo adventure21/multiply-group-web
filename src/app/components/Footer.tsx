@@ -5,7 +5,8 @@ export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer id="contact" className="bg-[#0A2E3D] border-t border-[#00C2FF]/20">
+    // CAMBIO APLICADO: Fondo actualizado al color del Header (#0a2d45)
+    <footer id="contact" className="bg-[#0a2d45] border-t border-[#00C2FF]/20">
       <div className="max-w-7xl mx-auto px-6 py-16">
         <div className="grid md:grid-cols-4 gap-12 mb-12">
           {/* Company Info */}
@@ -27,7 +28,8 @@ export function Footer() {
             <div className="flex gap-4">
               <motion.a
                 href="#"
-                className="bg-[#0D3A4A] w-10 h-10 rounded-lg flex items-center justify-center text-[#00C2FF] hover:bg-[#00C2FF] hover:text-white transition-colors"
+                // CAMBIO APLICADO: Fondo de botones actualizado al color de los dropdowns (#0f4268)
+                className="bg-[#0f4268] w-10 h-10 rounded-lg flex items-center justify-center text-[#00C2FF] hover:bg-[#00C2FF] hover:text-white transition-colors"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
               >
@@ -35,7 +37,7 @@ export function Footer() {
               </motion.a>
               <motion.a
                 href="#"
-                className="bg-[#0D3A4A] w-10 h-10 rounded-lg flex items-center justify-center text-[#00C2FF] hover:bg-[#00C2FF] hover:text-white transition-colors"
+                className="bg-[#0f4268] w-10 h-10 rounded-lg flex items-center justify-center text-[#00C2FF] hover:bg-[#00C2FF] hover:text-white transition-colors"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
               >
@@ -43,7 +45,7 @@ export function Footer() {
               </motion.a>
               <motion.a
                 href="#"
-                className="bg-[#0D3A4A] w-10 h-10 rounded-lg flex items-center justify-center text-[#00C2FF] hover:bg-[#00C2FF] hover:text-white transition-colors"
+                className="bg-[#0f4268] w-10 h-10 rounded-lg flex items-center justify-center text-[#00C2FF] hover:bg-[#00C2FF] hover:text-white transition-colors"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
               >
@@ -51,7 +53,7 @@ export function Footer() {
               </motion.a>
               <motion.a
                 href="#"
-                className="bg-[#0D3A4A] w-10 h-10 rounded-lg flex items-center justify-center text-[#00C2FF] hover:bg-[#00C2FF] hover:text-white transition-colors"
+                className="bg-[#0f4268] w-10 h-10 rounded-lg flex items-center justify-center text-[#00C2FF] hover:bg-[#00C2FF] hover:text-white transition-colors"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
               >
@@ -148,7 +150,7 @@ export function Footer() {
               <li className="flex items-start gap-3 text-[#B0C4CC]">
                 <MapPin className="w-5 h-5 mt-0.5 flex-shrink-0 text-[#00C2FF]" />
                 <span style={{ fontFamily: 'Inter, sans-serif' }}>
-                  Av. Rosendo Gutiérrez 957, entre Crespo y Holguín, Zona Sopocachi
+                  Av. Rosendo Gutiérrez 957, entre Crespo y Holguín, Zona Sopocachi
                   <br />
                   La Paz – Bolivia
                 </span>

@@ -26,7 +26,8 @@ export function OtherServicesSection() {
   ];
 
   return (
-    <section id="other-services" className="py-20 bg-[#0D3A4A]">
+    // CAMBIO APLICADO: Se cambió bg-[#0D3A4A] por style={{ background: '#072136' }}
+    <section id="other-services" className="py-20" style={{ background: '#072136' }}>
       <div className="max-w-7xl mx-auto px-6">
         <motion.div
           className="text-center mb-16"
@@ -55,7 +56,9 @@ export function OtherServicesSection() {
             return (
               <motion.div
                 key={index}
-                className="bg-[#0A2E3D] rounded-2xl p-8 border border-[#00C2FF]/20 hover:border-[#00C2FF]/50 transition-all duration-300 group"
+                // CAMBIO APLICADO: Se quitó bg-[#0A2E3D] y se añadió el degradado en style
+                className="rounded-2xl p-8 border border-[#00C2FF]/20 hover:border-[#00C2FF]/50 transition-all duration-300 group"
+                style={{ background: 'linear-gradient(135deg, #0C314D 0%, #072136 100%)' }}
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}

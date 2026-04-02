@@ -382,38 +382,6 @@ const expansionServices: Service[] = [
     ],
     color: '#3EC6D3',
   },
-];
-
-const capacitacionServices: Service[] = [
-  {
-    id: 40,
-    icon: GraduationCap,
-    step: 'Servicio 1',
-    title: 'Formación Empresarial',
-    subtitle: 'Charlas y capacitaciones especializadas',
-    lead: 'Ofrecemos charlas informativas y asesorías para que tu empresa y equipo estén preparados en procesos de importación, exportación y regulación.',
-    items: [
-      'Información actualizada sobre normativas y requisitos regulatorios',
-      'Charlas informativas de organismos como AGEMED',
-      'Orientación práctica para optimizar tu negocio y operaciones',
-    ],
-    color: '#00C2FF',
-  },
-  {
-    id: 41,
-    icon: Users,
-    step: 'Servicio 2',
-    title: 'Asesoría Empresarial',
-    subtitle: 'Acompañamiento legal, regulatorio y estratégico',
-    lead: 'Te acompañamos en todos los aspectos legales, regulatorios y estratégicos para que tu empresa crezca de forma segura y rentable.',
-    items: [
-      'Constitución y estructuración de empresas',
-      'Registro y protección de marcas (SENAPI)',
-      'Cumplimiento de normativas y regulaciones',
-      'Estrategias comerciales y de expansión',
-    ],
-    color: '#3EC6D3',
-  },
   {
     id: 42,
     icon: CalendarDays,
@@ -452,6 +420,38 @@ const capacitacionServices: Service[] = [
       'Otros destinos estratégicos según mercado y sector',
     ],
     cta: '📥 Descarga nuestro brochure con todos los servicios y ferias internacionales.',
+    color: '#3EC6D3',
+  },
+];
+
+const capacitacionServices: Service[] = [
+  {
+    id: 40,
+    icon: GraduationCap,
+    step: 'Servicio 1',
+    title: 'Formación Empresarial',
+    subtitle: 'Charlas y capacitaciones especializadas',
+    lead: 'Ofrecemos charlas informativas y asesorías para que tu empresa y equipo estén preparados en procesos de importación, exportación y regulación.',
+    items: [
+      'Información actualizada sobre normativas y requisitos regulatorios',
+      'Charlas informativas de organismos como AGEMED',
+      'Orientación práctica para optimizar tu negocio y operaciones',
+    ],
+    color: '#00C2FF',
+  },
+  {
+    id: 41,
+    icon: Users,
+    step: 'Servicio 2',
+    title: 'Asesoría Empresarial',
+    subtitle: 'Acompañamiento legal, regulatorio y estratégico',
+    lead: 'Te acompañamos en todos los aspectos legales, regulatorios y estratégicos para que tu empresa crezca de forma segura y rentable.',
+    items: [
+      'Constitución y estructuración de empresas',
+      'Registro y protección de marcas (SENAPI)',
+      'Cumplimiento de normativas y regulaciones',
+      'Estrategias comerciales y de expansión',
+    ],
     color: '#3EC6D3',
   },
 ];

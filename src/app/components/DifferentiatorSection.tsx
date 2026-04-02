@@ -37,10 +37,12 @@ export function DifferentiatorSection() {
   const slide = slides[current];
 
   return (
-    // 1. AJUSTE DE PADDING: Menos espacio arriba en móvil, pero mantenemos el de abajo para el botón de WhatsApp
-    <section className="pt-16 pb-32 sm:py-32 bg-gradient-to-br from-[#0D3A4A] via-[#0A2E3D] to-[#0D3A4A] relative overflow-hidden">
-      <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#00C2FF]/20 rounded-full blur-3xl" />
-      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-[#3EC6D3]/20 rounded-full blur-3xl" />
+    // CAMBIO APLICADO: Reemplacé los tonos verdosos por un gradiente basado en el nuevo Azul Noche (#072136)
+    <section className="pt-16 pb-32 sm:py-32 bg-gradient-to-br from-[#0B2A42] via-[#072136] to-[#0B2A42] relative overflow-hidden">
+      
+      {/* Luces de fondo (Blur) - Mantenemos los colores celestes para que resalten */}
+      <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#00C2FF]/15 rounded-full blur-3xl" />
+      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-[#3EC6D3]/15 rounded-full blur-3xl" />
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 relative z-10">
         <div className="relative overflow-hidden min-h-[280px] sm:min-h-[240px]">
@@ -68,7 +70,7 @@ export function DifferentiatorSection() {
                 </span>
               </div>
 
-              {/* 2. AJUSTE DE TÍTULO: Tamaño más proporcionado y text-balance para evitar cortes raros */}
+              {/* Título */}
               <h2
                 className="text-[28px] sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-5 sm:mb-6 leading-[1.2] text-balance"
                 style={{ fontFamily: 'Poppins, sans-serif' }}
@@ -76,7 +78,7 @@ export function DifferentiatorSection() {
                 {slide.title}
               </h2>
 
-              {/* 3. AJUSTE DE DESCRIPCIÓN: text-pretty/balance para mejor distribución */}
+              {/* Descripción */}
               <p
                 className="text-sm sm:text-lg md:text-xl text-[#B0C4CC] max-w-2xl mx-auto leading-relaxed text-balance"
                 style={{ fontFamily: 'Inter, sans-serif' }}
@@ -87,7 +89,7 @@ export function DifferentiatorSection() {
           </AnimatePresence>
         </div>
 
-        {/* Controles (Sin cambios, ya estaban excelentes) */}
+        {/* Controles */}
         <div className="flex items-center justify-center gap-6 mt-8 sm:mt-10">
           <button
             onClick={() => go(current - 1)}

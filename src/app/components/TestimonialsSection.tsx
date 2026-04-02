@@ -24,7 +24,7 @@ export function TestimonialsSection() {
   ];
 
   return (
-    <section className="py-20 bg-[#0A2E3D]">
+    <section id="testimonials" className="py-20 scroll-mt-20" style={{ background: '#0B283C' }}>
       <div className="max-w-7xl mx-auto px-6">
         <motion.div
           className="text-center mb-16"
@@ -51,7 +51,11 @@ export function TestimonialsSection() {
           {testimonials.map((testimonial, index) => (
             <motion.div
               key={index}
-              className="bg-[#0D3A4A] rounded-2xl p-8 relative hover:shadow-xl hover:shadow-[#00C2FF]/10 transition-all duration-300"
+              className="rounded-2xl p-8 relative hover:shadow-xl hover:shadow-[#00C2FF]/10 transition-all duration-300"
+              style={{ 
+                background: 'linear-gradient(135deg, #0C314D 0%, #072136 100%)',
+                border: '1px solid rgba(0, 194, 255, 0.1)'
+              }}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -67,7 +71,7 @@ export function TestimonialsSection() {
               </div>
 
               <p
-                className="text-[#B0C4CC] mb-6 text-lg leading-relaxed"
+                className="text-[#B0C4CC] mb-6 text-lg leading-relaxed z-10 relative"
                 style={{ fontFamily: 'Inter, sans-serif' }}
               >
                 "{testimonial.text}"

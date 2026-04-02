@@ -1,7 +1,7 @@
 import { motion } from 'motion/react';
 
 const FlagUS = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30" className="w-full h-full">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30" className="w-full h-full object-cover">
     <rect width="60" height="30" fill="#B22234"/>
     <rect y="2.3" width="60" height="2.3" fill="white"/>
     <rect y="6.9" width="60" height="2.3" fill="white"/>
@@ -26,7 +26,7 @@ const FlagUS = () => (
 );
 
 const FlagBO = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30" className="w-full h-full">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30" className="w-full h-full object-cover">
     <rect width="60" height="10" fill="#D52B1E"/>
     <rect y="10" width="60" height="10" fill="#F4E400"/>
     <rect y="20" width="60" height="10" fill="#007A3D"/>
@@ -34,7 +34,7 @@ const FlagBO = () => (
 );
 
 const FlagCN = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 40" className="w-full h-full">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 40" className="w-full h-full object-cover">
     <rect width="60" height="40" fill="#DE2910"/>
     <text x="10" y="16" fontSize="12" fill="#FFDE00" textAnchor="middle">★</text>
     <text x="22" y="8" fontSize="5" fill="#FFDE00" textAnchor="middle">★</text>
@@ -45,11 +45,10 @@ const FlagCN = () => (
 );
 
 const FlagIN = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 40" className="w-full h-full">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 40" className="w-full h-full object-cover">
     <rect width="60" height="13.3" fill="#FF9933"/>
     <rect y="13.3" width="60" height="13.3" fill="white"/>
     <rect y="26.6" width="60" height="13.4" fill="#138808"/>
-    {/* Rueda de Ashoka simplificada */}
     <circle cx="30" cy="20" r="5" fill="none" stroke="#000080" strokeWidth="0.8"/>
     <circle cx="30" cy="20" r="1" fill="#000080"/>
     {[...Array(24)].map((_, i) => {
@@ -71,40 +70,39 @@ const FlagIN = () => (
 );
 
 const countries = [
-  
   {
     flag: <FlagBO />,
     title: 'Bolivia',
     description: 'Potencial de crecimiento y conexión regional. Ideal para establecer operaciones en Sudamérica.',
-    stat: '+591',
-    statLabel: 'Numero en',
+    stat: '+591 77242591',
+    statLabel: 'Número en',
   },
   {
     flag: <FlagCN />,
     title: 'China',
     description: 'Líder en comercio y manufactura global. Plataforma sólida para importar, exportar y crecer.',
     stat: '+86',
-    statLabel: 'Numero en',
+    statLabel: 'Número en',
   },
   {
     flag: <FlagUS />,
     title: 'Estados Unidos',
     description: 'Centro de innovación y negocios internacionales. Acceso a mercados globales y oportunidades estratégicas.',
     stat: '+1',
-    statLabel: 'Numero en ',
+    statLabel: 'Número en',
   },
   {
     flag: <FlagIN />,
     title: 'India',
     description: 'Economía emergente con alto potencial en manufactura y tecnología. Nuevas rutas comerciales en expansión.',
     stat: '+91',
-    statLabel: 'Numero en',
+    statLabel: 'Número en',
   },
 ];
 
 export function ProblemSection() {
   return (
-    <section className="py-20 bg-[#0A2E3D]">
+    <section id="contact" className="py-20" style={{ background: '#072136' }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
 
         {/* Header */}
@@ -133,65 +131,75 @@ export function ProblemSection() {
 
         {/* Grid — 1 col móvil, 2 tablet, 4 desktop */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {countries.map((country, index) => (
-            <motion.div
-              key={index}
-              className="bg-[#0D3A4A] rounded-2xl p-6 sm:p-8 transition-all duration-300 group flex flex-col"
-              style={{ border: '1px solid rgba(0,194,255,0.1)' }}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              whileHover={{ y: -8, borderColor: 'rgba(0,194,255,0.35)' }}
-            >
-              {/* Bandera */}
-              <div className="w-20 h-14 rounded-xl overflow-hidden mb-5 shadow-lg shadow-black/30 group-hover:shadow-[#00C2FF]/10 transition-shadow flex-shrink-0">
-                {country.flag}
-              </div>
-
-              {/* Título */}
-              <h3
-                className="text-xl sm:text-2xl font-bold text-white mb-3"
-                style={{ fontFamily: 'Poppins, sans-serif' }}
+          {countries.map((country, index) => {
+            // Limpiamos el número para la URL de WhatsApp (quita espacios y el '+')
+            const cleanNumber = country.stat.replace(/\D/g, ''); 
+            
+            return (
+              <motion.div
+                key={index}
+                className="rounded-2xl p-6 sm:p-8 transition-all duration-300 group flex flex-col"
+                style={{ 
+                  background: 'linear-gradient(135deg, #0C314D 0%, #072136 100%)',
+                  border: '1px solid rgba(0,194,255,0.1)' 
+                }}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                whileHover={{ y: -8, borderColor: 'rgba(0,194,255,0.35)' }}
               >
-                {country.title}
-              </h3>
+                {/* Bandera */}
+                <div className="w-20 h-14 rounded-xl overflow-hidden mb-5 shadow-lg shadow-black/30 group-hover:shadow-[#00C2FF]/10 transition-shadow flex-shrink-0">
+                  {country.flag}
+                </div>
 
-              {/* Descripción */}
-              <p
-                className="text-sm sm:text-base text-[#B0C4CC] flex-grow mb-5"
-                style={{ fontFamily: 'Inter, sans-serif' }}
-              >
-                {country.description}
-              </p>
-
-              {/* Estadística ficticia */}
-              <div
-                className="mt-auto pt-4 border-t"
-                style={{ borderColor: 'rgba(0,194,255,0.15)' }}
-              >
-                <p
-                  className="text-2xl sm:text-3xl font-bold"
-                  style={{
-                    fontFamily: 'Poppins, sans-serif',
-                    color: index % 2 === 0 ? '#00C2FF' : '#3EC6D3',
-                  }}
+                {/* Título */}
+                <h3
+                  className="text-xl sm:text-2xl font-bold text-white mb-3"
+                  style={{ fontFamily: 'Poppins, sans-serif' }}
                 >
-                  {country.stat}
-                </p>
+                  {country.title}
+                </h3>
+
+                {/* Descripción */}
                 <p
-                  className="text-xs sm:text-sm text-[#7BA8B8] mt-0.5"
+                  className="text-sm sm:text-base text-[#B0C4CC] flex-grow mb-5"
                   style={{ fontFamily: 'Inter, sans-serif' }}
                 >
-                  {country.statLabel}
+                  {country.description}
                 </p>
-              </div>
 
-            </motion.div>   
-          ))}
+                {/* Estadística / Botón de WhatsApp */}
+                <div
+                  className="mt-auto pt-4 border-t flex flex-col-reverse"
+                  style={{ borderColor: 'rgba(0,194,255,0.15)' }}
+                >
+                  <p
+                    className="text-xs sm:text-sm text-[#7BA8B8] mt-1"
+                    style={{ fontFamily: 'Inter, sans-serif' }}
+                  >
+                    {country.statLabel}
+                  </p>
+                  
+                  {/* ENLACE A WHATSAPP MEJORADO ESTÉTICAMENTE */}
+                  <a
+                    href={`https://wa.me/${cleanNumber}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-2xl sm:text-3xl font-bold text-[#00C2FF] hover:text-white transition-all duration-300 inline-block drop-shadow-[0_0_8px_rgba(0,194,255,0.3)] hover:drop-shadow-[0_0_12px_rgba(255,255,255,0.5)] transform hover:scale-105 origin-left"
+                    style={{ fontFamily: 'Poppins, sans-serif' }}
+                  >
+                    {country.stat}
+                  </a>
+                </div>
+
+              </motion.div>   
+            );
+          })}
         </div>      
 
-      </div>           
+      </div>            
     </section>    
   );
 }

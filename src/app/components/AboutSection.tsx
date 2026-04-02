@@ -3,8 +3,7 @@ import { Target, Eye, Globe, Users, TrendingUp, Award } from 'lucide-react';
 
 export function AboutSection() {
   return (
-    // Agregué pb-32 para móviles (espacio para el botón de WhatsApp) y pt-20. En sm vuelve a un padding simétrico.
-    <section id="about" className="pt-20 pb-32 sm:py-24" style={{ background: '#0A2E3D' }}>
+    <section id="about" className="pt-20 pb-32 sm:py-24" style={{ background: '#072136' }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
 
         {/* Encabezado */}
@@ -21,7 +20,6 @@ export function AboutSection() {
           <p className="text-xl sm:text-2xl font-semibold text-[#00C2FF] max-w-2xl mx-auto mb-6 px-2 sm:px-0 leading-snug" style={{ fontFamily: 'Poppins, sans-serif' }}>
             Conectamos negocios globales con más de 20 años de experiencia.
           </p>
-          {/* Agregué px-4 para que el texto respire mejor en móviles */}
           <p className="text-base sm:text-lg text-[#B0C4CC] max-w-3xl mx-auto mb-10 px-4 sm:px-0 leading-relaxed" style={{ fontFamily: 'Inter, sans-serif' }}>
             Asesoramos en importaciones, exportaciones y representación comercial internacional,
             gestionando cada etapa del proceso con eficiencia, seguridad y rentabilidad.
@@ -42,7 +40,7 @@ export function AboutSection() {
           </div>
         </motion.div>
 
-        {/* ── QUIÉNES SOMOS — Grid 2×2 desde móvil ── */}
+        {/* ── QUIÉNES SOMOS ── */}
         <motion.p
           className="text-xs font-semibold tracking-widest text-[#00C2FF]/60 uppercase mb-4"
           initial={{ opacity: 0 }}
@@ -53,7 +51,6 @@ export function AboutSection() {
           Quiénes somos
         </motion.p>
 
-        {/* CAMBIO CLAVE: grid-cols-1 en móvil, sm:grid-cols-2 para tablets/PC */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 mb-16">
           {[
             {
@@ -87,11 +84,11 @@ export function AboutSection() {
           ].map(({ icon, accent, title, body, delay }) => (
             <motion.div
               key={title}
+              // AQUÍ ESTÁ EL CAMBIO EN LAS CAJAS DE QUIÉNES SOMOS
               style={{
-                background: 'linear-gradient(135deg, #0D3A4A 0%, #0A2E3D 100%)',
+                background: 'linear-gradient(135deg, #0C314D 0%, #072136 100%)',
                 borderColor: `${accent}33`,
               }}
-              // Ajusté el padding y cambié la orientación a horizontal (row) en móvil para aprovechar el espacio a 1 columna
               className="rounded-xl sm:rounded-2xl p-5 sm:p-8 border flex flex-row sm:flex-col items-start gap-4 sm:gap-6"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -124,12 +121,12 @@ export function AboutSection() {
           Misión y Visión
         </motion.p>
 
-        {/* Este grid ya estaba bien (1 columna en móvil, 2 en PC), solo ajusté ligeramente los paddings para coherencia */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
           {/* Misión */}
           <motion.div
             className="rounded-2xl p-5 sm:p-8 border border-[#00C2FF]/25 flex flex-col relative overflow-hidden"
-            style={{ background: 'linear-gradient(135deg, #0D3A4A 0%, #0A2E3D 100%)' }}
+            // AQUÍ ESTÁ EL CAMBIO EN LA CAJA DE MISIÓN
+            style={{ background: 'linear-gradient(135deg, #0C314D 0%, #072136 100%)' }}
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -138,7 +135,6 @@ export function AboutSection() {
           >
             <div className="absolute top-0 left-0 w-1 h-full rounded-l-2xl" style={{ background: '#00C2FF' }} />
             
-            {/* --- CABECERA COMPACTA --- */}
             <div className="flex items-center gap-4 mb-3 sm:mb-4">
               <div className="bg-[#00C2FF]/10 w-12 h-12 sm:w-14 sm:h-14 shrink-0 rounded-xl flex items-center justify-center">
                 <Target className="w-6 h-6 sm:w-7 sm:h-7 text-[#00C2FF]" />
@@ -147,7 +143,6 @@ export function AboutSection() {
                 Nuestra Misión
               </h3>
             </div>
-            {/* ------------------------- */}
 
             <p className="text-[#B0C4CC] text-sm sm:text-base leading-relaxed" style={{ fontFamily: 'Inter, sans-serif' }}>
               Impulsar el crecimiento de empresas conectándose con oportunidades globales, brindando
@@ -158,7 +153,8 @@ export function AboutSection() {
           {/* Visión */}
           <motion.div
             className="rounded-2xl p-5 sm:p-8 border border-[#3EC6D3]/25 flex flex-col relative overflow-hidden"
-            style={{ background: 'linear-gradient(135deg, #0D3A4A 0%, #0A2E3D 100%)' }}
+            // AQUÍ ESTÁ EL CAMBIO EN LA CAJA DE VISIÓN
+            style={{ background: 'linear-gradient(135deg, #0C314D 0%, #072136 100%)' }}
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -167,7 +163,6 @@ export function AboutSection() {
           >
             <div className="absolute top-0 left-0 w-1 h-full rounded-l-2xl" style={{ background: '#3EC6D3' }} />
             
-            {/* --- CABECERA COMPACTA --- */}
             <div className="flex items-center gap-4 mb-3 sm:mb-4">
               <div className="bg-[#3EC6D3]/10 w-12 h-12 sm:w-14 sm:h-14 shrink-0 rounded-xl flex items-center justify-center">
                 <Eye className="w-6 h-6 sm:w-7 sm:h-7 text-[#3EC6D3]" />
@@ -176,7 +171,6 @@ export function AboutSection() {
                 Nuestra Visión
               </h3>
             </div>
-            {/* ------------------------- */}
 
             <p className="text-[#B0C4CC] text-sm sm:text-base leading-relaxed" style={{ fontFamily: 'Inter, sans-serif' }}>
               Ser el socio estratégico de referencia para empresas que buscan expandirse internacionalmente,

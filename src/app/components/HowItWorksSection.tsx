@@ -41,7 +41,8 @@ export function HowItWorksSection() {
   ];
 
   return (
-    <section id="how-it-works" className="py-20 bg-[#0A2E3D]">
+    // CAMBIO APLICADO: Fondo actualizado al nuevo tono de la imagen (#0B283C)
+    <section id="how-it-works" className="py-20" style={{ background: '#0B283C' }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
 
         {/* Header */}
@@ -113,7 +114,8 @@ export function HowItWorksSection() {
                     <div
                       className="absolute -top-1.5 -right-1.5 w-6 h-6 sm:w-7 sm:h-7 rounded-full flex items-center justify-center font-bold text-xs border-2 text-white"
                       style={{
-                        background: '#0A2E3D',
+                        // CAMBIO APLICADO: Fondo actualizado al nuevo tono para hacer match con la sección
+                        background: '#0B283C',
                         borderColor: accent,
                         color: accent,
                       }}

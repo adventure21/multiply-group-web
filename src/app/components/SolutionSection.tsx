@@ -10,7 +10,8 @@ export function SolutionSection() {
   ];
 
   return (
-    <section className="py-20 bg-[#0D3A4A]">
+    // CAMBIO APLICADO: Fondo actualizado al nuevo tono (#0B283C)
+    <section className="py-20" style={{ background: '#0B283C' }}>
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid md:grid-cols-2 gap-16 items-center">
           <motion.div
@@ -44,7 +45,12 @@ export function SolutionSection() {
             {solutions.map((solution, index) => (
               <motion.div
                 key={index}
-                className="flex items-start gap-4 bg-[#0A2E3D] p-6 rounded-xl"
+                // CAMBIO APLICADO: Se eliminó bg-[#0A2E3D] y se añadió el degradado azul con borde sutil
+                className="flex items-start gap-4 p-6 rounded-xl"
+                style={{ 
+                  background: 'linear-gradient(135deg, #0C314D 0%, #072136 100%)',
+                  border: '1px solid rgba(0, 194, 255, 0.1)'
+                }}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}

@@ -41,7 +41,7 @@ export function PartnersSection() {
   };
 
   return (
-    <section className="py-20 bg-[#0D3A4A]">
+    <section id="partners" className="py-20 scroll-mt-20" style={{ background: '#072136' }}>
       <div className="max-w-7xl mx-auto px-6">
         <motion.h2
           className="text-4xl font-bold text-white text-center mb-16"
@@ -59,7 +59,11 @@ export function PartnersSection() {
             {partners.map((partner, index) => (
               <div key={index} className="px-8">
                 <motion.div
-                  className="bg-[#0A2E3D] rounded-xl p-8 flex items-center justify-center h-32 transition-all duration-300 hover:bg-[#0A2E3D]/70 group"
+                  className="rounded-xl p-8 flex items-center justify-center h-32 transition-all duration-300 group"
+                  style={{ 
+                    background: 'linear-gradient(135deg, #0C314D 0%, #072136 100%)',
+                    border: '1px solid rgba(0, 194, 255, 0.1)'
+                  }}
                   whileHover={{ scale: 1.05 }}
                 >
                   <p

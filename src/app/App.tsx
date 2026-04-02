@@ -1,3 +1,4 @@
+import { LanguageProvider } from './components/LanguageContext'; // Importamos el proveedor de idioma
 import { Header } from './components/Header';
 import { HeroSection } from './components/HeroSection';
 import { AboutSection } from './components/AboutSection';
@@ -16,22 +17,28 @@ import { WhatsAppButton } from './components/WhatsAppButton';
 
 export default function App() {
   return (
-    <div className="bg-[#0A2E3D] min-h-screen overflow-x-hidden">
-      <Header />
-      <HeroSection />
-      <AboutSection />
-      <StakeholdersSection />
-      <DifferentiatorSection />
-      <ServicesSection />
-      <OtherServicesSection />
-      <BenefitsSection /> 
-      <HowItWorksSection />
-      <PartnersSection />
-      <SolutionSection />
-      <TestimonialsSection />
-      <ProblemSection />
-      <Footer />
-      <WhatsAppButton />
-    </div>
+    <LanguageProvider>
+      {/* FIX: overflow-x-hidden NO va aquí, atrapa los fixed */}
+      <div className="bg-[#0A2E3D] min-h-screen">
+        <Header />
+        {/* div interno que contiene el scroll lateral */}
+        <div className="overflow-x-hidden">
+          <HeroSection />
+          <AboutSection />
+          <StakeholdersSection />
+          <DifferentiatorSection />
+          <ServicesSection />
+          <OtherServicesSection />
+          <HowItWorksSection />
+          <BenefitsSection />
+          <SolutionSection />
+          <PartnersSection />
+          <TestimonialsSection />
+          <ProblemSection />
+          <Footer />
+        </div>
+        <WhatsAppButton />
+      </div>
+    </LanguageProvider>
   );
 }
