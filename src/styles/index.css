@@ -36,3 +36,10 @@
 .slick-slide > div {
   width: 100%;
 }
+
+/* --- CLASE PARA ARREGLAR EL CARRUSEL --- */
+@layer utilities {
+  .grid-area-stack {
+    grid-area: 1 / 1;
+  }
+}

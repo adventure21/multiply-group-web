@@ -16,7 +16,7 @@ import { WhatsAppButton } from './components/WhatsAppButton';
 
 export default function App() {
   return (
-    <div className="bg-[#0A2E3D] min-h-screen">
+    <div className="bg-[#0A2E3D] min-h-screen overflow-x-hidden">
       <Header />
       <HeroSection />
       <AboutSection />

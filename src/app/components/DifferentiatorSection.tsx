@@ -37,17 +37,18 @@ export function DifferentiatorSection() {
   const slide = slides[current];
 
   return (
-    <section className="py-32 bg-gradient-to-br from-[#0D3A4A] via-[#0A2E3D] to-[#0D3A4A] relative overflow-hidden">
+    // 1. AJUSTE DE PADDING: Menos espacio arriba en móvil, pero mantenemos el de abajo para el botón de WhatsApp
+    <section className="pt-16 pb-32 sm:py-32 bg-gradient-to-br from-[#0D3A4A] via-[#0A2E3D] to-[#0D3A4A] relative overflow-hidden">
       <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#00C2FF]/20 rounded-full blur-3xl" />
       <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-[#3EC6D3]/20 rounded-full blur-3xl" />
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 relative z-10">
-        <div className="relative overflow-hidden min-h-[280px]">
+        <div className="relative overflow-hidden min-h-[280px] sm:min-h-[240px]">
           <AnimatePresence mode="wait" custom={direction}>
             <motion.div
               key={current}
               custom={direction}
-              className="text-center"
+              className="text-center px-2 sm:px-0" // Padding lateral extra en móvil
               initial={{ opacity: 0, x: direction * 60 }}
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: direction * -60 }}
@@ -55,27 +56,29 @@ export function DifferentiatorSection() {
             >
               {/* Badge */}
               <div
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-full mb-8"
+                className="inline-flex items-center gap-2 px-5 py-2.5 sm:px-6 sm:py-3 rounded-full mb-6 sm:mb-8"
                 style={{ background: `${slide.badgeColor}18` }}
               >
-                <Sparkles className="w-5 h-5" style={{ color: slide.badgeColor }} />
+                <Sparkles className="w-4 h-4 sm:w-5 sm:h-5" style={{ color: slide.badgeColor }} />
                 <span
-                  className="font-semibold text-sm sm:text-base"
+                  className="font-semibold text-xs sm:text-base tracking-wide"
                   style={{ fontFamily: 'Inter, sans-serif', color: slide.badgeColor }}
                 >
                   {slide.badge}
                 </span>
               </div>
 
+              {/* 2. AJUSTE DE TÍTULO: Tamaño más proporcionado y text-balance para evitar cortes raros */}
               <h2
-                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight"
+                className="text-[28px] sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-5 sm:mb-6 leading-[1.2] text-balance"
                 style={{ fontFamily: 'Poppins, sans-serif' }}
               >
                 {slide.title}
               </h2>
 
+              {/* 3. AJUSTE DE DESCRIPCIÓN: text-pretty/balance para mejor distribución */}
               <p
-                className="text-base sm:text-lg md:text-xl text-[#B0C4CC] max-w-3xl mx-auto"
+                className="text-sm sm:text-lg md:text-xl text-[#B0C4CC] max-w-2xl mx-auto leading-relaxed text-balance"
                 style={{ fontFamily: 'Inter, sans-serif' }}
               >
                 {slide.description}
@@ -84,8 +87,8 @@ export function DifferentiatorSection() {
           </AnimatePresence>
         </div>
 
-        {/* Controles */}
-        <div className="flex items-center justify-center gap-6 mt-10">
+        {/* Controles (Sin cambios, ya estaban excelentes) */}
+        <div className="flex items-center justify-center gap-6 mt-8 sm:mt-10">
           <button
             onClick={() => go(current - 1)}
             className="w-10 h-10 rounded-full flex items-center justify-center transition-colors"
@@ -94,7 +97,7 @@ export function DifferentiatorSection() {
             <ChevronLeft className="w-5 h-5" />
           </button>
 
-          <div className="flex gap-2">
+          <div className="flex gap-3">
             {slides.map((_, i) => (
               <button
                 key={i}

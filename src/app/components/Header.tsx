@@ -1,293 +1,204 @@
-import { useState, useEffect, useRef } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
+import { useState, useEffect } from 'react';
 import { Menu, X, ChevronDown } from 'lucide-react';
-
-const SUBMENU_ITEMS: Record<string, { label: string; id: string }[]> = {
-  'services': [
-    { label: 'Importación y Exportación', id: 'services' },
-    { label: 'Consultoría Empresarial',   id: 'services' },
-    { label: 'Logística y Gestión',       id: 'services' },
-    { label: 'Expansión Internacional',   id: 'services' },
-    { label: 'Capacitación Empresarial',  id: 'services' },
-  ],
-  'how-it-works': [
-    { label: 'Contacto',    id: 'how-it-works' },
-    { label: 'Análisis',    id: 'how-it-works' },
-    { label: 'Búsqueda',    id: 'how-it-works' },
-    { label: 'Negociación', id: 'how-it-works' },
-    { label: 'Regulación',  id: 'how-it-works' },
-    { label: 'Importación', id: 'how-it-works' },
-    { label: 'Entrega',     id: 'how-it-works' },
-  ],
-  'about': [
-    { label: 'Quiénes somos',   id: 'about' },
-    { label: 'Misión / Visión', id: 'about' },
-    { label: 'Experiencia',     id: 'about' },
-  ],
-  'contact': [
-    { label: 'Formulario',       id: 'contact' },
-    { label: 'Reserva una cita', id: 'contact' },
-  ],
-};
-
-const NAV_ITEMS = [
-  { label: 'Inicio',              id: 'home' },
-  { label: 'Nosotros',            id: 'about',         hasSubmenu: true },
-  { label: 'Servicios',           id: 'services',      hasSubmenu: true },
-  { label: 'Cómo Funciona',       id: 'how-it-works',  hasSubmenu: true },
-  { label: 'Socios Estratégicos', id: 'other-services' },
-  { label: 'Contacto',            id: 'contact',       hasSubmenu: true },
-];
+// Si usas Next.js o React Router, importa tu Link aquí. 
+// Por ahora usaremos etiquetas <a> y botones para el scroll.
 
 export function Header() {
-  const [isScrolled, setIsScrolled]       = useState(false);
-  const [activeSection, setActiveSection] = useState('home');
-  const [menuOpen, setMenuOpen]           = useState(false);
-  const [submenuOpen, setSubmenuOpen]     = useState<string | null>(null);
-  const [mobileOpenId, setMobileOpenId]   = useState<string | null>(null);
-  const navRef = useRef<HTMLDivElement>(null);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
 
+  // Efecto para cambiar el fondo del nav al hacer scroll
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-      const offsets = NAV_ITEMS.map(({ id }) => {
-        const el = document.getElementById(id);
-        if (!el) return { id, top: Infinity };
-        return { id, top: Math.abs(el.getBoundingClientRect().top) };
-      });
-      const closest = offsets.reduce((a, b) => (a.top < b.top ? a : b));
-      setActiveSection(closest.id);
+      setIsScrolled(window.scrollY > 20);
     };
-    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  useEffect(() => {
-    const onResize = () => {
-      if (window.innerWidth >= 768) setMenuOpen(false);
-    };
-    window.addEventListener('resize', onResize);
-    return () => window.removeEventListener('resize', onResize);
-  }, []);
-
-  useEffect(() => {
-    const handleClickOutside = (e: MouseEvent) => {
-      if (navRef.current && !navRef.current.contains(e.target as Node)) {
-        setSubmenuOpen(null);
-      }
-    };
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, []);
-
+  // Función para navegar a secciones generales
   const scrollToSection = (id: string) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
-    setMenuOpen(false);
-    setSubmenuOpen(null);
-    setMobileOpenId(null);
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+    setIsMobileMenuOpen(false);
+    setActiveDropdown(null);
+  };
+
+  // Función para navegar específicamente a los sub-servicios
+  const handleScrollToService = (id: string) => {
+    // Primero, nos aseguramos de estar en la sección de servicios
+    const servicesSection = document.getElementById('services');
+    if (servicesSection) {
+      // Pequeño timeout para asegurar que el DOM está listo si venimos de otra página
+      setTimeout(() => {
+        const element = document.getElementById(id);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    }
+    setIsMobileMenuOpen(false);
+    setActiveDropdown(null);
+  };
+
+  const toggleDropdown = (menu: string) => {
+    if (activeDropdown === menu) {
+      setActiveDropdown(null);
+    } else {
+      setActiveDropdown(menu);
+    }
   };
 
   return (
-    <>
-      <motion.header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled ? 'bg-[#0A2E3D]/95 backdrop-blur-md shadow-lg' : 'bg-transparent'
-        }`}
-        initial={{ y: -100 }}
-        animate={{ y: 0 }}
-        transition={{ duration: 0.5 }}
-      >
-        <div className="max-w-7xl mx-auto px-6 py-2">
-          <div className="flex items-center justify-between">
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isScrolled ? 'bg-[#0a2d45]/95 backdrop-blur-md shadow-lg py-3' : 'bg-transparent py-5'
+      }`}
+    >
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        <div className="flex justify-between items-center">
+          
+          {/* Logo */}
+          <div className="flex-shrink-0 cursor-pointer" onClick={() => scrollToSection('inicio')}>
+            {/* Reemplaza esta ruta por la de tu logo real */}
+            <img src="/image/logo2.png" alt="Multiply Group" className="h-10 md:h-12" />
+          </div>
 
-            {/* Logo */}
-            <div className="flex-shrink-0 cursor-pointer" onClick={() => scrollToSection('home')}>
-              <img src="/image/logo2.png" alt="Multiply Group Logo" className="h-20 w-auto" />
+          {/* Menú Desktop */}
+          <nav className="hidden md:flex items-center gap-6 lg:gap-8">
+            <button onClick={() => scrollToSection('inicio')} className="text-white hover:text-[#00C2FF] font-medium transition-colors">
+              Inicio
+            </button>
+
+            {/* Dropdown Nosotros */}
+            <div className="relative group">
+              <button className="flex items-center gap-1 text-white hover:text-[#00C2FF] font-medium transition-colors py-2">
+                Nosotros <ChevronDown className="w-4 h-4" />
+              </button>
+              <div className="absolute top-full left-0 mt-2 w-48 bg-[#0f4268] border border-[#00C2FF]/20 rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 overflow-hidden">
+                <div className="flex flex-col py-2">
+                  <button onClick={() => scrollToSection('quienes-somos')} className="text-left px-4 py-2 text-sm text-white hover:bg-[#00C2FF]/10 hover:text-[#00C2FF] transition-colors">Quiénes somos</button>
+                  <button onClick={() => scrollToSection('mision')} className="text-left px-4 py-2 text-sm text-white hover:bg-[#00C2FF]/10 hover:text-[#00C2FF] transition-colors">Misión / Visión</button>
+                  <button onClick={() => scrollToSection('experiencia')} className="text-left px-4 py-2 text-sm text-white hover:bg-[#00C2FF]/10 hover:text-[#00C2FF] transition-colors">Experiencia</button>
+                </div>
+              </div>
             </div>
 
-            {/* Nav desktop */}
-            <nav ref={navRef} className="hidden md:flex items-center gap-6">
-              {NAV_ITEMS.map(({ label, id, hasSubmenu }) =>
-                hasSubmenu ? (
-                  <div key={id} className="relative">
-                    <button
-                      onClick={() => setSubmenuOpen(o => o === id ? null : id)}
-                      className="relative flex items-center gap-1 text-sm transition-colors duration-200"
-                      style={{
-                        fontFamily: 'Inter, sans-serif',
-                        color: activeSection === id ? '#00C2FF' : '#B0C4CC',
-                      }}
-                    >
-                      {label}
-                      <ChevronDown
-                        size={14}
-                        className="transition-transform duration-200"
-                        style={{
-                          transform: submenuOpen === id ? 'rotate(180deg)' : 'rotate(0deg)',
-                        }}
-                      />
-                      {activeSection === id && (
-                        <motion.span
-                          layoutId="underline"
-                          className="absolute -bottom-1 left-0 right-0 h-px bg-[#00C2FF]"
-                        />
-                      )}
-                    </button>
-
-                    {/* Dropdown desktop */}
-                    <AnimatePresence>
-                      {submenuOpen === id && (
-                        <motion.div
-                          initial={{ opacity: 0, y: 8 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          exit={{ opacity: 0, y: 8 }}
-                          transition={{ duration: 0.18 }}
-                          className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-56 rounded-xl overflow-hidden shadow-xl border border-[#00C2FF]/15"
-                          style={{ background: '#0A2E3D' }}
-                        >
-                          {SUBMENU_ITEMS[id]?.map(({ label: subLabel, id: subId }) => (
-                            <button
-                              key={subLabel}
-                              onClick={() => scrollToSection(subId)}
-                              className="w-full text-left px-4 py-3 text-sm transition-colors duration-150 hover:bg-[#00C2FF]/10 hover:text-[#00C2FF]"
-                              style={{
-                                fontFamily: 'Inter, sans-serif',
-                                color: '#B0C4CC',
-                                borderBottom: '1px solid rgba(0,194,255,0.07)',
-                              }}
-                            >
-                              {subLabel}
-                            </button>
-                          ))}
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
-                  </div>
-                ) : (
-                  <button
-                    key={id}
-                    onClick={() => scrollToSection(id)}
-                    className="relative text-sm transition-colors duration-200"
-                    style={{
-                      fontFamily: 'Inter, sans-serif',
-                      color: activeSection === id ? '#00C2FF' : '#B0C4CC',
-                    }}
-                  >
-                    {label}
-                    {activeSection === id && (
-                      <motion.span
-                        layoutId="underline"
-                        className="absolute -bottom-1 left-0 right-0 h-px bg-[#00C2FF]"
-                      />
-                    )}
-                  </button>
-                )
-              )}
-            </nav>
-
-            {/* CTA + hamburguesa */}
-            <div className="flex items-center gap-3">
-              <button
-                onClick={() => scrollToSection('cta')}
-                className="hidden md:block bg-[#00C2FF] hover:bg-[#009FCC] text-white px-6 py-2.5 rounded-xl transition-all duration-300 hover:scale-105 text-sm"
-                style={{ fontFamily: 'Inter, sans-serif' }}
+            {/* Dropdown Servicios (AQUÍ ESTÁ LA CONEXIÓN) */}
+            <div className="relative group">
+              <button 
+                onClick={() => scrollToSection('services')}
+                className="flex items-center gap-1 text-[#00C2FF] border-b-2 border-[#00C2FF] pb-1 font-medium transition-colors py-2"
               >
-                Comienza Ahora
+                Servicios <ChevronDown className="w-4 h-4" />
               </button>
-              <button
-                className="md:hidden text-white p-2"
-                onClick={() => setMenuOpen(o => !o)}
-                aria-label="Toggle menu"
-              >
-                {menuOpen ? <X size={24} /> : <Menu size={24} />}
-              </button>
+              <div className="absolute top-full left-0 mt-2 w-56 bg-[#0f4268] border border-[#00C2FF]/20 rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 overflow-hidden">
+                <div className="flex flex-col py-2">
+                  <button onClick={() => handleScrollToService('importacion')} className="text-left px-4 py-2 text-sm text-white hover:bg-[#00C2FF]/10 hover:text-[#00C2FF] transition-colors">Importación y Exportación</button>
+                  <button onClick={() => handleScrollToService('consultoria')} className="text-left px-4 py-2 text-sm text-white hover:bg-[#00C2FF]/10 hover:text-[#00C2FF] transition-colors">Consultoría Empresarial</button>
+                  <button onClick={() => handleScrollToService('logistica')} className="text-left px-4 py-2 text-sm text-white hover:bg-[#00C2FF]/10 hover:text-[#00C2FF] transition-colors">Logística y Gestión</button>
+                  <button onClick={() => handleScrollToService('expansion')} className="text-left px-4 py-2 text-sm text-white hover:bg-[#00C2FF]/10 hover:text-[#00C2FF] transition-colors">Expansión Internacional</button>
+                  <button onClick={() => handleScrollToService('capacitacion')} className="text-left px-4 py-2 text-sm text-white hover:bg-[#00C2FF]/10 hover:text-[#00C2FF] transition-colors">Capacitación Empresarial</button>
+                </div>
+              </div>
             </div>
 
+            <button onClick={() => scrollToSection('como-funciona')} className="text-white hover:text-[#00C2FF] font-medium transition-colors">
+              Cómo Funciona
+            </button>
+            <button onClick={() => scrollToSection('socios')} className="text-white hover:text-[#00C2FF] font-medium transition-colors">
+              Socios Estratégicos
+            </button>
+            <button onClick={() => scrollToSection('contacto')} className="text-white hover:text-[#00C2FF] font-medium transition-colors">
+              Contacto
+            </button>
+          </nav>
+
+          {/* Botón CTA Desktop */}
+          <div className="hidden md:block">
+            <button
+              onClick={() => scrollToSection('contacto')}
+              className="bg-[#00C2FF] hover:bg-[#3EC6D3] text-white px-6 py-2.5 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 shadow-[0_0_15px_rgba(0,194,255,0.4)]"
+            >
+              Comienza Ahora
+            </button>
+          </div>
+
+          {/* Botón Menú Hamburguesa (Móvil) */}
+          <div className="md:hidden">
+            <button
+              onClick={() => setIsMobileMenuOpen(true)}
+              className="text-white p-2 focus:outline-none"
+            >
+              <Menu className="w-7 h-7" />
+            </button>
           </div>
         </div>
-      </motion.header>
+      </div>
 
-      {/* Menú móvil */}
-      <AnimatePresence>
-        {menuOpen && (
-          <motion.div
-            key="mobile-menu"
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 0.2 }}
-            className="fixed top-[84px] left-0 right-0 z-40 bg-[#0A2E3D]/98 backdrop-blur-md border-t border-[#00C2FF]/10 md:hidden"
-          >
-            <nav className="flex flex-col px-6 py-4 gap-1">
-              {NAV_ITEMS.map(({ label, id, hasSubmenu }) => (
-                <div key={id}>
-                  <button
-                    onClick={() => {
-                      if (hasSubmenu) {
-                        setMobileOpenId(o => o === id ? null : id);
-                      } else {
-                        scrollToSection(id);
-                      }
-                    }}
-                    className="w-full text-left py-3 px-4 rounded-lg transition-colors duration-200 text-sm flex items-center justify-between"
-                    style={{
-                      fontFamily: 'Inter, sans-serif',
-                      color: activeSection === id ? '#00C2FF' : '#B0C4CC',
-                      background: activeSection === id ? 'rgba(0,194,255,0.08)' : 'transparent',
-                    }}
-                  >
-                    {label}
-                    {hasSubmenu && (
-                      <ChevronDown
-                        size={14}
-                        className="transition-transform duration-200"
-                        style={{
-                          transform: mobileOpenId === id ? 'rotate(180deg)' : 'rotate(0deg)',
-                        }}
-                      />
-                    )}
-                  </button>
+      {/* Menú Móvil (Overlay) */}
+      <div
+        className={`fixed inset-0 bg-[#0a2d45] z-[60] transition-transform duration-300 ease-in-out transform ${
+          isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
+        } md:hidden`}
+      >
+        <div className="p-5 flex justify-between items-center border-b border-white/10">
+          <img src="/image/logo2.png" alt="Multiply Group" className="h-10" />
+          <button onClick={() => setIsMobileMenuOpen(false)} className="text-white p-2">
+            <X className="w-7 h-7" />
+          </button>
+        </div>
 
-                  {/* Submenú móvil */}
-                  <AnimatePresence>
-                    {hasSubmenu && mobileOpenId === id && (
-                      <motion.div
-                        initial={{ opacity: 0, height: 0 }}
-                        animate={{ opacity: 1, height: 'auto' }}
-                        exit={{ opacity: 0, height: 0 }}
-                        transition={{ duration: 0.2 }}
-                        className="overflow-hidden"
-                      >
-                        {SUBMENU_ITEMS[id]?.map(({ label: subLabel, id: subId }) => (
-                          <button
-                            key={subLabel}
-                            onClick={() => scrollToSection(subId)}
-                            className="w-full text-left py-2.5 pl-8 pr-4 text-sm transition-colors duration-150 hover:text-[#00C2FF]"
-                            style={{
-                              fontFamily: 'Inter, sans-serif',
-                              color: '#8AAAB8',
-                            }}
-                          >
-                            · {subLabel}
-                          </button>
-                        ))}
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </div>
-              ))}
-
-              <button
-                onClick={() => scrollToSection('cta')}
-                className="mt-3 bg-[#00C2FF] hover:bg-[#009FCC] text-white px-6 py-3 rounded-xl transition-all duration-300 text-sm font-semibold"
-                style={{ fontFamily: 'Inter, sans-serif' }}
-              >
-                Comienza Ahora
+        <div className="p-6 overflow-y-auto h-[calc(100vh-80px)]">
+          <div className="flex flex-col gap-4">
+            <button onClick={() => scrollToSection('inicio')} className="text-left text-lg font-medium text-white">Inicio</button>
+            
+            {/* Acordeón Nosotros Móvil */}
+            <div>
+              <button onClick={() => toggleDropdown('nosotros')} className="flex items-center justify-between w-full text-left text-lg font-medium text-white">
+                Nosotros <ChevronDown className={`w-5 h-5 transition-transform ${activeDropdown === 'nosotros' ? 'rotate-180 text-[#00C2FF]' : ''}`} />
               </button>
-            </nav>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </>
+              {activeDropdown === 'nosotros' && (
+                <div className="flex flex-col gap-3 pl-4 mt-3 border-l border-white/20">
+                  <button onClick={() => scrollToSection('quienes-somos')} className="text-left text-[#B0C4CC]">· Quiénes somos</button>
+                  <button onClick={() => scrollToSection('mision')} className="text-left text-[#B0C4CC]">· Misión / Visión</button>
+                  <button onClick={() => scrollToSection('experiencia')} className="text-left text-[#B0C4CC]">· Experiencia</button>
+                </div>
+              )}
+            </div>
+
+            {/* Acordeón Servicios Móvil (AQUÍ ESTÁ LA CONEXIÓN) */}
+            <div>
+              <button onClick={() => toggleDropdown('servicios')} className="flex items-center justify-between w-full text-left text-lg font-medium text-white">
+                Servicios <ChevronDown className={`w-5 h-5 transition-transform ${activeDropdown === 'servicios' ? 'rotate-180 text-[#00C2FF]' : ''}`} />
+              </button>
+              {activeDropdown === 'servicios' && (
+                <div className="flex flex-col gap-4 pl-4 mt-4 border-l border-[#00C2FF]/30">
+                  <button onClick={() => handleScrollToService('importacion')} className="text-left text-[#B0C4CC] hover:text-[#00C2FF]">Importación y Exportación</button>
+                  <button onClick={() => handleScrollToService('consultoria')} className="text-left text-[#B0C4CC] hover:text-[#00C2FF]">Consultoría Empresarial</button>
+                  <button onClick={() => handleScrollToService('logistica')} className="text-left text-[#B0C4CC] hover:text-[#00C2FF]">Logística y Gestión</button>
+                  <button onClick={() => handleScrollToService('expansion')} className="text-left text-[#B0C4CC] hover:text-[#00C2FF]">Expansión Internacional</button>
+                  <button onClick={() => handleScrollToService('capacitacion')} className="text-left text-[#B0C4CC] hover:text-[#00C2FF]">Capacitación Empresarial</button>
+                </div>
+              )}
+            </div>
+
+            <button onClick={() => scrollToSection('como-funciona')} className="text-left text-lg font-medium text-white">Cómo Funciona</button>
+            <button onClick={() => scrollToSection('socios')} className="text-left text-lg font-medium text-white">Socios Estratégicos</button>
+            <button onClick={() => scrollToSection('contacto')} className="text-left text-lg font-medium text-white">Contacto</button>
+
+            <button
+              onClick={() => scrollToSection('contacto')}
+              className="mt-6 bg-[#00C2FF] text-white px-6 py-3 rounded-xl font-semibold text-center w-full"
+            >
+              Comienza Ahora
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
   );
 }

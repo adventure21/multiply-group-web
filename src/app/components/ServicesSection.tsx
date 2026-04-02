@@ -620,7 +620,7 @@ function CategoryBlock({ category, categoryIndex }: { category: Category; catego
   const accentColor = categoryIndex % 2 === 0 ? '#00C2FF' : '#3EC6D3';
 
   return (
-    <div className="mb-20">
+    <div id={category.id} className="mb-20 scroll-mt-32">
       <motion.div
         className="mb-8"
         initial={{ opacity: 0, x: -20 }}
@@ -681,7 +681,7 @@ export function ServicesSection() {
           transition={{ duration: 0.6 }}
         >
           <span
-            className="inline-block text-xs font-bold trcking-widest uppercase mb-4 px-4 py-1.5 rounded-full"
+            className="inline-block text-xs font-bold tracking-widest uppercase mb-4 px-4 py-1.5 rounded-full"
             style={{
               color: '#00C2FF',
               background: 'rgba(0,194,255,0.1)',

@@ -41,7 +41,7 @@ export function HeroSection() {
       />
 
       {/* Contenido */}
-      <div className="relative z-10 w-full max-w-5xl mx-auto px-4 sm:px-6 text-center">
+      <div className="relative z-10 w-full max-w-5xl mx-auto px-6 text-center">
 
         {/* Badge superior */}
         <motion.div
@@ -67,7 +67,7 @@ export function HeroSection() {
           MULTIPLY GROUP
         </motion.h1>
 
-        {/* Subtítulo corto — impacto inmediato */}
+        {/* Subtítulo */}
         <motion.p
           className="text-lg sm:text-xl font-semibold text-[#3EC6D3] mb-4"
           style={{ fontFamily: 'Poppins, sans-serif' }}
@@ -78,7 +78,7 @@ export function HeroSection() {
           Asesores en comercio internacional y representación empresarial global
         </motion.p>
 
-        {/* Descripción — más corta y legible */}
+        {/* Descripción */}
         <motion.p
           className="text-sm sm:text-base md:text-lg text-[#B0C4CC] mb-10 max-w-2xl mx-auto leading-relaxed"
           style={{ fontFamily: 'Inter, sans-serif' }}
@@ -90,7 +90,7 @@ export function HeroSection() {
           gestionando importaciones, exportaciones y logística con eficiencia y seguridad.
         </motion.p>
 
-        {/* Botones */}
+        {/* Botones — ✅ corregidos */}
         <motion.div
           className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center"
           initial={{ opacity: 0, y: 30 }}
@@ -99,22 +99,22 @@ export function HeroSection() {
         >
           <button
             onClick={() => scrollToSection('cta')}
-            className="w-full sm:w-auto bg-[#00C2FF] hover:bg-[#009FCC] text-white px-8 py-4 rounded-xl transition-all duration-300 hover:scale-105 flex items-center justify-center gap-2 shadow-lg shadow-[#00C2FF]/30 font-semibold"
-            style={{ fontFamily: 'Inter, sans-serif' }}
+            className="bg-[#00C2FF] hover:bg-[#009FCC] text-white px-8 py-3.5 rounded-xl transition-all duration-300 hover:scale-105 flex items-center justify-center gap-2 shadow-lg shadow-[#00C2FF]/30 font-semibold text-sm sm:text-base"
+            style={{ fontFamily: 'Inter, sans-serif', minWidth: '180px' }}
           >
             Comienza Ahora
-            <ArrowRight className="w-5 h-5" />
+            <ArrowRight className="w-4 h-4" />
           </button>
           <button
             onClick={() => scrollToSection('services')}
-            className="w-full sm:w-auto bg-transparent border-2 border-[#00C2FF] text-white px-8 py-4 rounded-xl transition-all duration-300 hover:bg-[#00C2FF]/10 font-medium"
-            style={{ fontFamily: 'Inter, sans-serif' }}
+            className="bg-transparent border-2 border-[#00C2FF] text-white px-8 py-3.5 rounded-xl transition-all duration-300 hover:bg-[#00C2FF]/10 font-medium text-sm sm:text-base"
+            style={{ fontFamily: 'Inter, sans-serif', minWidth: '180px' }}
           >
             Ver Servicios
           </button>
         </motion.div>
 
-        {/* Flags — mercados clave */}
+        {/* Flags */}
         <motion.div
           className="flex justify-center gap-6 mt-10"
           initial={{ opacity: 0 }}

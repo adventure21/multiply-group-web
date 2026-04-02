@@ -69,12 +69,14 @@ const externalPartners = [
 
 export function StakeholdersSection() {
   return (
-    <section id="stakeholders" className="py-24 relative overflow-hidden" style={{ background: '#0a2d45' }}>
+    // Reduje el padding vertical en móvil de py-24 a py-12
+    <section id="stakeholders" className="py-12 sm:py-24 relative overflow-hidden" style={{ background: '#0a2d45' }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
 
         {/* ENCABEZADO */}
+        {/* Reduje el margen inferior en móvil de mb-20 a mb-12 */}
         <motion.div
-          className="text-center mb-20"
+          className="text-center mb-12 sm:mb-20"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -106,13 +108,13 @@ export function StakeholdersSection() {
         </motion.div>
 
         {/* EQUIPO INTERNO */}
-        <div className="mb-24">
-          <div className="flex items-center gap-3 mb-10 border-b border-[#00C2FF]/20 pb-4">
+        <div className="mb-16 sm:mb-24">
+          <div className="flex items-center gap-3 mb-6 sm:mb-10 border-b border-[#00C2FF]/20 pb-4">
             <div
-              className="w-9 h-9 rounded-lg flex items-center justify-center"
+              className="w-8 h-8 sm:w-9 sm:h-9 rounded-lg flex items-center justify-center"
               style={{ background: 'rgba(0,194,255,0.15)', border: '1px solid rgba(0,194,255,0.3)' }}
             >
-              <Users className="w-5 h-5 text-[#00C2FF]" />
+              <Users className="w-4 h-4 sm:w-5 sm:h-5 text-[#00C2FF]" />
             </div>
             <h3
               className="text-xl sm:text-2xl md:text-3xl font-bold text-white"
@@ -122,13 +124,14 @@ export function StakeholdersSection() {
             </h3>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
             {internalTeam.map((area, index) => {
               const Icon = area.icon;
               return (
                 <motion.div
                   key={index}
-                  className="rounded-2xl p-5 sm:p-6 flex flex-col h-full transition-all duration-300"
+                  // Reduje padding en móvil a p-4
+                  className="rounded-2xl p-4 sm:p-6 flex flex-col h-full transition-all duration-300"
                   style={{
                     background: 'linear-gradient(135deg, #0f4268 0%, #0a2d45 100%)',
                     border: `1px solid ${area.color}25`,
@@ -139,27 +142,31 @@ export function StakeholdersSection() {
                   transition={{ duration: 0.5, delay: index * 0.06 }}
                   whileHover={{ y: -6, borderColor: area.color + '66' }}
                 >
-                  {/* Ícono */}
-                  <div
-                    className="w-12 h-12 rounded-xl flex items-center justify-center mb-4"
-                    style={{
-                      background: `${area.color}15`,
-                      border: `1px solid ${area.color}35`,
-                    }}
-                  >
-                    <Icon className="w-6 h-6" style={{ color: area.color }} />
+                  
+                  {/* NUEVA CABECERA: Ícono y título en la misma línea */}
+                  <div className="flex items-center gap-3 mb-3 sm:mb-4">
+                    {/* Ícono más pequeño en móvil */}
+                    <div
+                      className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl flex shrink-0 items-center justify-center"
+                      style={{
+                        background: `${area.color}15`,
+                        border: `1px solid ${area.color}35`,
+                      }}
+                    >
+                      <Icon className="w-5 h-5 sm:w-6 sm:h-6" style={{ color: area.color }} />
+                    </div>
+
+                    {/* Título del área */}
+                    <h4
+                      className="text-base sm:text-lg font-bold text-white leading-tight"
+                      style={{ fontFamily: 'Poppins, sans-serif' }}
+                    >
+                      {area.area}
+                    </h4>
                   </div>
 
-                  {/* Título del área */}
-                  <h4
-                    className="text-base font-bold text-white mb-3 leading-tight"
-                    style={{ fontFamily: 'Poppins, sans-serif' }}
-                  >
-                    {area.area}
-                  </h4>
-
-                  {/* Items */}
-                  <ul className="space-y-1.5 flex-grow">
+                  {/* Items alineados ligeramente */}
+                  <ul className="space-y-1.5 flex-grow ml-1">
                     {area.items.map((item, i) => (
                       <li
                         key={i}
@@ -182,12 +189,12 @@ export function StakeholdersSection() {
 
         {/* SOCIOS EXTERNOS */}
         <div>
-          <div className="flex items-center gap-3 mb-10 border-b border-[#3EC6D3]/20 pb-4">
+          <div className="flex items-center gap-3 mb-6 sm:mb-10 border-b border-[#3EC6D3]/20 pb-4">
             <div
-              className="w-9 h-9 rounded-lg flex items-center justify-center"
+              className="w-8 h-8 sm:w-9 sm:h-9 rounded-lg flex items-center justify-center"
               style={{ background: 'rgba(62,198,211,0.15)', border: '1px solid rgba(62,198,211,0.3)' }}
             >
-              <Globe className="w-5 h-5 text-[#3EC6D3]" />
+              <Globe className="w-4 h-4 sm:w-5 sm:h-5 text-[#3EC6D3]" />
             </div>
             <h3
               className="text-xl sm:text-2xl md:text-3xl font-bold text-white"
@@ -197,13 +204,14 @@ export function StakeholdersSection() {
             </h3>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
             {externalPartners.map((partner, index) => {
               const Icon = partner.icon;
               return (
                 <motion.div
                   key={index}
-                  className="rounded-2xl p-5 sm:p-6 flex flex-col h-full transition-all duration-300"
+                  // Reduje padding en móvil a p-4
+                  className="rounded-2xl p-4 sm:p-6 flex flex-col h-full transition-all duration-300"
                   style={{
                     background: 'linear-gradient(135deg, #0f4268 0%, #0a2d45 100%)',
                     border: `1px solid ${partner.color}25`,
@@ -214,25 +222,26 @@ export function StakeholdersSection() {
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   whileHover={{ y: -6, borderColor: partner.color + '66' }}
                 >
-                  <div className="flex items-start gap-4 mb-3">
+                  {/* Mejoré el centrado vertical del título con el ícono (items-center) */}
+                  <div className="flex items-center gap-3 mb-2 sm:mb-3">
                     <div
-                      className="w-12 h-12 rounded-xl flex shrink-0 items-center justify-center"
+                      className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl flex shrink-0 items-center justify-center"
                       style={{
                         background: `${partner.color}15`,
                         border: `1px solid ${partner.color}35`,
                       }}
                     >
-                      <Icon className="w-6 h-6" style={{ color: partner.color }} />
+                      <Icon className="w-5 h-5 sm:w-6 sm:h-6" style={{ color: partner.color }} />
                     </div>
                     <h4
-                      className="text-base sm:text-lg font-bold text-white leading-tight pt-1"
+                      className="text-base sm:text-lg font-bold text-white leading-tight"
                       style={{ fontFamily: 'Poppins, sans-serif' }}
                     >
                       {partner.role}
                     </h4>
                   </div>
                   <p
-                    className="text-xs sm:text-sm text-[#B0C4CC] flex-grow"
+                    className="text-xs sm:text-sm text-[#B0C4CC] flex-grow ml-1"
                     style={{ fontFamily: 'Inter, sans-serif' }}
                   >
                     {partner.desc}
