@@ -31,6 +31,7 @@ export function WhatsAppButton() {
           repeat: Infinity,
           ease: 'easeInOut',
         }}
+      {/* Pulse animation */}
       />
     </motion.button>
   );
