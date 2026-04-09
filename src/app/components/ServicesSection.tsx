@@ -59,85 +59,102 @@ interface Category {
 
 const importacionServices: Service[] = [
   {
-    id: 1,
-    icon: Lightbulb,
-    step: 'Paso 1',
-    title: 'Análisis de Producto',
-    subtitle: 'Contacto y Asesoría Personalizada',
-    lead: 'Analizamos tu necesidad y definimos la mejor estrategia del negocio.',
-    items: [
-      'Evaluamos el producto que deseas importar o exportar',
-      'Definimos presupuesto, cantidades y mercado objetivo',
-      'Te guiamos sobre viabilidad y rentabilidad',
-    ],
-    cta: '💡 Nuestro objetivo es que tomes decisiones seguras desde el inicio.',
-    color: '#00C2FF',
+  id: 1,
+  icon: Lightbulb,
+  step: 'Paso 1',
+  title: 'Análisis de Producto',
+  subtitle: 'Contacto y Asesoría Personalizada',
+  lead: 'Analizamos tu necesidad y definimos la mejor estrategia del negocio.',
+  items: [
+    'Evaluación del producto y oportunidad de mercado',
+    'Revisión de requisitos legales para importar o exportar',
+    'Identificación de permisos, registros y certificaciones necesarias',
+    'Asesoría en certificaciones internacionales para exportación',
+    'Definición de presupuesto, volúmenes y mercado objetivo',
+    'Análisis de costos, impuestos y viabilidad del negocio',
+  ],
+  cta: 'Nuestro objetivo es que tomes decisiones seguras desde el inicio.',
+  color: '#00C2FF',
+},
+  {
+  id: 2,
+  icon: Search,
+  step: 'Paso 2',
+  title: 'Búsqueda y Validación de Socios',
+  subtitle: 'Proveedores y clientes verificados',
+  lead: 'Identificamos proveedores o clientes confiables y verificamos su capacidad real antes de cualquier negociación.',
+  items: [
+    'Búsqueda directa de fabricantes, proveedores o compradores verificados',
+    'Evaluación de experiencia, capacidad productiva y reputación',
+    'Validación legal y comercial del proveedor o cliente',
+    'Comparación de opciones (calidad, certificaciones, ubicación, capacidad)',
+    'Verificación de cumplimiento normativo según el producto',
+    'Coordinación y gestión de muestras (si aplica)',
+  ],
+  cta: 'Trabaja únicamente con socios confiables, reduciendo riesgos desde el inicio.',
+  color: '#3EC6D3',
   },
   {
-    id: 2,
-    icon: Search,
-    step: 'Paso 2',
-    title: 'Búsqueda de Proveedores y Clientes',
-    subtitle: 'Validación de socios comerciales',
-    lead: 'Encontramos fabricantes confiables y verificados en China u otros países.',
-    items: [
-      'Búsqueda directa en fábricas, proveedores o compradores certificados',
-      'Validación legal y comercial del cliente',
-      'Comparación de precios, calidad y condiciones',
-      'Solicitud de muestras (si aplica)',
-    ],
-    cta: '🛡️ Evita fraudes y trabaja solo con proveedores seguros.',
-    color: '#3EC6D3',
+  id: 3,
+  icon: Handshake,
+  step: 'Paso 3',
+  title: 'Negociación y Cierre Comercial',
+  subtitle: 'Mejores condiciones económicas, legales y operativas',
+  lead: 'Gestionamos y optimizamos la negociación para asegurar las mejores condiciones económicas, legales y operativas.',
+  items: [
+    'Negociación de precios y condiciones comerciales',
+    'Definición de MOQ (cantidades mínimas de compra)',
+    'Acuerdos de tiempos de producción y entrega',
+    'Estructuración de condiciones de pago seguras',
+    'Definición de Incoterms (FOB, CIF, etc.)',
+    'Elaboración y revisión de contratos internacionales',
+    'Desarrollo de marca propia (OEM / Private Label)',
+    'Protección de la inversión y reducción de riesgos contractuales',
+  ],
+  cta: 'Cerramos acuerdos rentables, seguros y alineados a tu estrategia de negocio.',
+  color: '#00C2FF',
   },
   {
-    id: 3,
-    icon: Handshake,
-    step: 'Paso 3',
-    title: 'Negociación',
-    subtitle: 'Negociación Profesional',
-    lead: 'Asesoramiento en tus negociaciones en base a esquema legal para obtener las mejores condiciones y garantizar tus inversiones.',
-    items: [
-      'Elaboración de contratos internacionales entre partes',
-      'Mejores precios de fábrica',
-      'Condiciones de pago seguras',
-      'Tiempos de producción optimizados',
-      'Desarrollo de marca propia (OEM / Private Label)',
-    ],
-    cta: '📈 Maximizamos tu rentabilidad en cada negociación.',
-    color: '#00C2FF',
-  },
-  {
-    id: 4,
-    icon: FileCheck2,
-    step: 'Paso 4',
-    title: 'Regulación Especial',
-    subtitle: 'Permisos, registros y autorizaciones',
-    lead: 'Todos los permisos, registros y autorizaciones obligatorias para importar o exportar productos controlados por el Estado.',
-    groups: [
-      {
-        label: '🔹 Incluye',
-        items: [
-          'Registros sanitarios (medicamentos, alimentos, cosméticos)',
-          'Permisos de importación especiales',
-          'Certificaciones técnicas y de calidad',
-          'Normativas del país de destino',
-          'Restricciones legales de productos sensibles',
-        ],
-      },
-      {
-        label: '🏛️ Entidades reguladoras',
-        items: [
-          'AGEMED → medicamentos, equipos médicos, cosméticos',
-          'SENASAG → alimentos, bebidas, productos agropecuarios',
-          'SENAVEX → registro importador/exportador, certificados de origen',
-          'Aduana Nacional → clasificación arancelaria y despacho',
-          'IBMETRO → certificaciones técnicas',
-          'Ministerio de Salud → autorizaciones especiales',
-        ],
-      },
-    ],
-    color: '#3EC6D3',
-  },
+  id: 4,
+  icon: FileCheck2,
+  step: 'Paso 4',
+  title: 'Regulación Especial',
+  subtitle: 'Permisos, registros y autorizaciones',
+  lead: 'Todos los permisos, registros y autorizaciones obligatorias para importar o exportar productos controlados por el Estado.',
+  groups: [
+    {
+      label: 'Incluye',
+      items: [
+        'Registros sanitarios (medicamentos, alimentos, cosméticos)',
+        'Permisos de importación especiales',
+        'Certificaciones técnicas y de calidad',
+        'Normativas del país de destino',
+        'Restricciones legales de productos sensibles',
+      ],
+    },
+    {
+      label: 'Entidades Reguladoras en Bolivia',
+      items: [
+        'Aduana Nacional → Control, fiscalización, clasificación arancelaria y despacho de mercancías',
+        'SENAVEX → Registro de exportadores (RUEX), certificados de origen y autorizaciones previas',
+        'SENASAG → Permisos sanitarios, fitosanitarios e inocuidad para alimentos, agroindustria y productos veterinarios',
+        'IBMETRO → Certificaciones técnicas, calidad, metrología y cumplimiento de estándares',
+        'AGEMED / Ministerio de Salud → Autorizaciones sanitarias especiales (medicamentos, dispositivos médicos, cosméticos)',
+        'Banco Central de Bolivia (BCB) → Control y certificación en exportaciones específicas (ej. minerales como oro)',
+      ],
+    },
+    {
+      label: 'Normativas Internacionales (Exportación)',
+      items: [
+        'Certificaciones de calidad y seguridad (ISO, CE, FDA, entre otras)',
+        'Normativas sanitarias y de etiquetado',
+        'Requisitos de origen y tratados comerciales',
+        'Regulaciones técnicas específicas del país de destino',
+      ],
+    },
+  ],
+  color: '#3EC6D3',
+},
   {
     id: 5,
     icon: PackageCheck,
@@ -147,7 +164,7 @@ const importacionServices: Service[] = [
     lead: 'Nos encargamos de todo el proceso para traer tus productos o llevarlos al mundo de forma segura, rentable y sin complicaciones.',
     groups: [
       {
-        label: '📦 Importación',
+        label: 'Importación',
         items: [
           'Coordinación de producción y control de calidad en origen',
           'Logística internacional (aérea o marítima)',
@@ -155,7 +172,7 @@ const importacionServices: Service[] = [
         ],
       },
       {
-        label: '🌍 Exportación — preparación',
+        label: 'Exportación — preparación',
         items: [
           'Adecuación a normativas internacionales',
           'Etiquetado y requisitos del país destino',
@@ -163,7 +180,7 @@ const importacionServices: Service[] = [
         ],
       },
       {
-        label: '🚢 Exportación — logística',
+        label: 'Exportación — logística',
         items: [
           'Coordinación de transporte aéreo o marítimo',
           'Gestión de agentes de carga',
@@ -172,7 +189,7 @@ const importacionServices: Service[] = [
         ],
       },
       {
-        label: '⭐ Conexión con compradores (Opcional)',
+        label: 'Conexión con compradores (Opcional)',
         items: [
           'Búsqueda de clientes en el exterior',
           'Ruedas de negocio',
@@ -180,7 +197,7 @@ const importacionServices: Service[] = [
         ],
       },
     ],
-    cta: '📦 Importas o exportas sin complicaciones, nosotros hacemos el trabajo pesado.',
+    cta: 'Importas o exportas sin complicaciones, nosotros hacemos el trabajo pesado.',
     color: '#00C2FF',
   },
   {
@@ -196,7 +213,7 @@ const importacionServices: Service[] = [
       'Entrega en tu ciudad o almacén',
       'Seguimiento post-importación',
     ],
-    cta: '🎯 Tu producto en tus manos, listo para generar ingresos.',
+    cta: 'Tu producto en tus manos, listo para generar ingresos.',
     color: '#3EC6D3',
   },
 ];
@@ -302,7 +319,7 @@ const logisticaServices: Service[] = [
       'Logística internacional',
       'Asesoría en regulaciones',
     ],
-    cta: '📦 Importas sin complicaciones, nosotros hacemos el trabajo pesado.',
+    cta: 'Importas sin complicaciones, nosotros hacemos el trabajo pesado.',
     color: '#3EC6D3',
   },
   {
@@ -313,15 +330,15 @@ const logisticaServices: Service[] = [
     subtitle: 'Bolivia al mundo',
     lead: 'Llevamos tus productos desde Bolivia hacia mercados internacionales de forma segura, eficiente y rentable.',
     groups: [
-      { label: '📦 Preparación del producto', items: ['Adecuación a normativas internacionales', 'Etiquetado y requisitos del país destino'] },
-      { label: '📄 Gestión documental', items: ['Factura comercial', 'Lista de empaque', 'Certificados de origen', 'Documentación aduanera'] },
-      { label: '🏭 Coordinación con producción', items: ['Planificación de pedidos', 'Control de tiempos de entrega', 'Validación de capacidad productiva'] },
-      { label: '✅ Control de calidad', items: ['Verificación del producto', 'Cumplimiento de estándares internacionales'] },
-      { label: '🚢 Logística internacional', items: ['Coordinación de transporte aéreo o marítimo', 'Gestión de agentes de carga', 'Optimización de costos logísticos'] },
-      { label: '📋 Asesoría regulatoria', items: ['Requisitos del país de destino', 'Normas sanitarias o técnicas', 'Restricciones de importación en destino'] },
-      { label: '⭐ Conexión con compradores internacionales', items: ['Búsqueda de clientes en el exterior', 'Ruedas de negocio', 'Contacto con distribuidores'] },
+      { label: 'Preparación del producto', items: ['Adecuación a normativas internacionales', 'Etiquetado y requisitos del país destino'] },
+      { label: 'Gestión documental', items: ['Factura comercial', 'Lista de empaque', 'Certificados de origen', 'Documentación aduanera'] },
+      { label: 'Coordinación con producción', items: ['Planificación de pedidos', 'Control de tiempos de entrega', 'Validación de capacidad productiva'] },
+      { label: 'Control de calidad', items: ['Verificación del producto', 'Cumplimiento de estándares internacionales'] },
+      { label: 'Logística internacional', items: ['Coordinación de transporte aéreo o marítimo', 'Gestión de agentes de carga', 'Optimización de costos logísticos'] },
+      { label: 'Asesoría regulatoria', items: ['Requisitos del país de destino', 'Normas sanitarias o técnicas', 'Restricciones de importación en destino'] },
+      { label: 'Conexión con compradores internacionales', items: ['Búsqueda de clientes en el exterior', 'Ruedas de negocio', 'Contacto con distribuidores'] },
     ],
-    cta: '🎯 Llegada puntual, sin riesgos y con control total de la inversión.',
+    cta: 'Llegada puntual, sin riesgos y con control total de la inversión.',
     color: '#00C2FF',
   },
   {
@@ -357,7 +374,7 @@ const expansionServices: Service[] = [
     ],
     groups: [
       {
-        label: '👥 Área Comercial',
+        label: 'Área Comercial',
         items: [
           'Ejecutivo de ventas B2B',
           'Especialista en expansión internacional',
@@ -404,7 +421,7 @@ const expansionServices: Service[] = [
         ],
       },
     ],
-    cta: '📥 Descarga nuestro brochure con toda la información: drive.google.com',
+    cta: 'Descarga nuestro brochure con toda la información: drive.google.com',
     color: '#00C2FF',
   },
   {
@@ -419,7 +436,7 @@ const expansionServices: Service[] = [
       'Brasil: Hospitalar / Medical Fair (sector salud)',
       'Otros destinos estratégicos según mercado y sector',
     ],
-    cta: '📥 Descarga nuestro brochure con todos los servicios y ferias internacionales.',
+    cta: 'Descarga nuestro brochure con todos los servicios y ferias internacionales.',
     color: '#3EC6D3',
   },
 ];
@@ -698,10 +715,12 @@ export function ServicesSection() {
             Nuestros Servicios
           </h2>
           <p
-            className="text-base sm:text-lg md:text-xl max-w-2xl mx-auto px-4"
-            style={{ color: '#B0C4CC', fontFamily: 'Inter, sans-serif' }}
-          >
-            Soluciones integrales para hacer exitoso tu negocio de importación y exportación
+              className="text-base sm:text-lg md:text-xl max-w-2xl mx-auto px-4"
+              style={{ color: '#B0C4CC', fontFamily: 'Inter, sans-serif' }}
+              >
+              Soluciones integrales para hacer tu negocio exitoso en importación, exportación
+              y representación internacional{' '}
+              optimizando tu cadena logística y asegurando procesos legales, eficientes y rentables.
           </p>
         </motion.div>
 
