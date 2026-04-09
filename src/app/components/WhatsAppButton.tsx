@@ -19,7 +19,7 @@ export function WhatsAppButton() {
     >
       <MessageCircle className="w-8 h-8" />
       
-      {/* Pulse animation */}
+      {/* Pulseanimation*/}
       <motion.div
         className="absolute inset-0 bg-[#25D366] rounded-full"
         animate={{
